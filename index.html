@@ -1,23 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mugs Away Dart Scoring App</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Force dartboard images to 50% larger */
-        .title-img { width: 75px; height: auto; }
-        /* Indent menu-description further right */
-        .menu-description { margin-left: 28ch; }
-        /* Ensure About text is blue */
-        .menu-description dt font { color: #4FC3F7; }
-        .btn-container button { margin: 5px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mugs Away Dart Scoring App</title>
+<link rel="stylesheet" href="style.css">
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+<style>
+/* --------------------------
+   HEADER / TITLE & IMAGES
+-------------------------- */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-text h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.title-text h2 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #CCCCCC;
+}
+
+.title-img {
+    width: 75px;
+    height: auto;
+}
+
+/* --------------------------
+   INTRO TEXT
+-------------------------- */
+.intro {
+    margin-top: 0;
+}
+
+.intro p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* --------------------------
+   DOWNLOAD & DONATE BUTTONS
+-------------------------- */
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#downloadBtn, #donateBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#downloadBtn:hover, #donateBtn:hover {
+    background-color: #45a049;
+}
+
+/* --------------------------
+   SCREENSHOTS / MENU
+-------------------------- */
+.mode, .menu-image {
+    margin: 20px auto;
+}
+
+.mode img, .menu-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.menu-description {
+    text-align: left;
+    margin-left: 28ch;
+    color: #CCCCCC;
+}
+
+.menu-description dt {
+    color: #4FC3F7;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.menu-description dd {
+    margin: 5px 0 10px 0;
+}
+
+/* --------------------------
+   REVIEWS
+-------------------------- */
+#reviews {
+    background-color: #2F3B43;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.review {
+    background-color: #39464E;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* --------------------------
+   FORMS
+-------------------------- */
+.form-section {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* --------------------------
+   MANUAL LINK
+-------------------------- */
+#manual a {
+    color: #4FC3F7;
+    text-decoration: none;
+}
+
+#manual a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------
+   FOOTER
+-------------------------- */
+footer {
+    background-color: #1E272C;
+    padding: 20px;
+    margin-top: 40px;
+    color: #CCCCCC;
+}
+</style>
 </head>
 <body>
 
@@ -31,13 +184,13 @@
     <img src="assets/dartboardnormal.png" alt="Dartboard Right" class="title-img">
 </header>
 
-<!-- INTRO TEXT -->
+<!-- INTRO -->
 <section class="intro">
     <p>Play 101, 301, 501, 701 and 1001 with a friend or against the Bot!</p>
     <p>No fuss, straightforward scoring app for dart players.</p>
 </section>
 
-<!-- DOWNLOAD + DONATE BUTTONS -->
+<!-- DOWNLOAD & DONATE -->
 <section id="download-donate">
     <div class="btn-container">
         <a href="assets/MugsAwayWindows.zip" download>
@@ -49,24 +202,31 @@
     </div>
 </section>
 
-<!-- GAME MODES / SCREENSHOTS -->
+<!-- GAME MODES -->
 <section id="screenshots">
     <p>Screenshots from Android version (Coming Soon)</p>
+
     <div class="mode">
         <h3>501 Continuous Mode (default)</h3>
         <img src="assets/Main.png" alt="501 Continuous Mode Screenshot" class="mode-img" style="width:450px;height:999px;">
     </div>
+
     <div class="mode">
         <h3>101 Best of 3 Sets</h3>
         <img src="assets/101 Best of.jpg" alt="101 Best of 3 Sets Screenshot" class="mode-img" style="width:450px;height:999px;">
     </div>
+
     <div class="menu-image">
         <p><strong>Easy Menu for all modes</strong></p>
         <img src="assets/Menu black.png" alt="Menu Screenshot" class="menu-img" width="866" height="491">
+
         <dl class="menu-description">
-            <dt><font>Game Type:</font></dt><dd>101, 301, 501, 701, 1001</dd>
+            <dt><font>Game Type:</font></dt>
+            <dd>101, 301, 501, 701, 1001</dd>
+
             <dt><font>Match Format:</font></dt>
-            <dd>Continuous Play (default)<br>
+            <dd>
+                Continuous Play (default)<br>
                 Best 1 Set (3 Legs)<br>
                 Best 3 Sets (3 Legs)<br>
                 Best 5 Sets (3 Legs)<br>
@@ -74,11 +234,21 @@
                 First 7 Legs<br>
                 Customize... Create your own match, Choose number of Sets/Legs
             </dd>
-            <dt><font>Throwing Rule:</font></dt><dd>Alternative throw/Mugs Away (loser of previous leg throws first)</dd>
-            <dt><font>Toggle Bot:</font></dt><dd>Enable / Disable Bot</dd>
-            <dt><font>Favourites:</font></dt><dd>Save and load games</dd>
-            <dt><font>End Game/Stats:</font></dt><dd>Shows Statistics Screen</dd>
-            <dt><font>About:</font></dt><dd>Displays version number and Contact details</dd>
+
+            <dt><font>Throwing Rule:</font></dt>
+            <dd>Alternative throw/Mugs Away (loser of previous leg throws first)</dd>
+
+            <dt><font>Toggle Bot:</font></dt>
+            <dd>Enable / Disable Bot</dd>
+
+            <dt><font>Favourites:</font></dt>
+            <dd>Save and load games</dd>
+
+            <dt><font>End Game/Stats:</font></dt>
+            <dd>Shows Statistics Screen</dd>
+
+            <dt><font>About:</font></dt>
+            <dd>Displays version number and Contact details</dd>
         </dl>
     </div>
 </section>
@@ -86,10 +256,11 @@
 <!-- USER REVIEWS -->
 <section id="reviews">
     <h2 class="section-title">User Reviews</h2>
-    <div id="reviewsList"></div>
+    <div id="reviewsContainer"></div>
+
     <form id="reviewForm" class="form-section">
         <h3>Submit Your Review</h3>
-        <input id="name" type="text" placeholder="Your Name" required size="20">
+        <input id="name" type="text" placeholder="Your Name" required>
         <select id="rating" required>
             <option value="">Rating</option>
             <option value="1">&#9733;</option>
@@ -98,19 +269,18 @@
             <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
             <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
         </select>
-        <textarea id="comment" rows="3" placeholder="Your review" required cols="20"></textarea>
+        <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
         <button type="submit">Submit Review</button>
     </form>
 </section>
 
-<!-- SUBSCRIBE SECTION -->
+<!-- SUBSCRIBE -->
 <section id="subscribe">
     <h2 class="section-title">Get Android Release Updates</h2>
     <form id="subscribeForm" class="form-section">
-        <input id="email" type="email" placeholder="Enter your email" required size="20">
+        <input id="email" type="email" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
     </form>
-    <p>Email list placeholder (Firebase integration live)</p>
 </section>
 
 <!-- MANUAL -->
@@ -125,9 +295,9 @@
     <p><em>Android version coming soon!</em></p>
 </footer>
 
-<!-- FIREBASE + JS -->
+<!-- FIREBASE & JS -->
 <script>
-  // Firebase config
+  // Initialize Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyB8TNP-UxQOM6_uIfMn2BU_tfXj9M-Y9JY",
     authDomain: "mugsawayreviews.firebaseapp.com",
@@ -136,54 +306,57 @@
     messagingSenderId: "546187997609",
     appId: "1:546187997609:web:2c97076d266865ffbd94b8"
   };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // REVIEWS
-  const reviewForm = document.getElementById('reviewForm');
-  const reviewsList = document.getElementById('reviewsList');
+  // Handle review form
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewsContainer = document.getElementById("reviewsContainer");
 
-  reviewForm.addEventListener('submit', (e) => {
+  reviewForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const rating = document.getElementById('rating').value;
-    const comment = document.getElementById('comment').value;
+    const name = document.getElementById("name").value;
+    const rating = document.getElementById("rating").value;
+    const comment = document.getElementById("comment").value;
 
-    db.collection('reviews').add({ name, rating, comment, timestamp: Date.now() })
-      .then(() => {
-        reviewForm.reset();
-        loadReviews();
-      });
+    await db.collection("reviews").add({
+      name,
+      rating,
+      comment,
+      timestamp: new Date()
+    });
+
+    alert("Review submitted!");
+    reviewForm.reset();
+    loadReviews();
   });
 
-  function loadReviews() {
-    reviewsList.innerHTML = '';
-    db.collection('reviews').orderBy('timestamp', 'desc').get().then(snapshot => {
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const div = document.createElement('div');
-        div.classList.add('review');
-        div.innerHTML = `<p><strong>${data.name}</strong> (${data.rating} ★)</p><p>${data.comment}</p>`;
-        reviewsList.appendChild(div);
-      });
+  // Load reviews
+  async function loadReviews() {
+    reviewsContainer.innerHTML = "";
+    const snapshot = await db.collection("reviews").orderBy("timestamp", "desc").get();
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const div = document.createElement("div");
+      div.className = "review";
+      div.innerHTML = `<p><strong>${data.name}</strong> (${data.rating}★): ${data.comment}</p>`;
+      reviewsContainer.appendChild(div);
     });
   }
 
   loadReviews();
 
-  // SUBSCRIBE
-  const subscribeForm = document.getElementById('subscribeForm');
-  subscribeForm.addEventListener('submit', (e) => {
+  // Subscribe form
+  const subscribeForm = document.getElementById("subscribeForm");
+  subscribeForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    if (!email) return;
-    db.collection('subscribers').add({ email, timestamp: Date.now() })
-      .then(() => {
-        alert('Thanks for subscribing!');
-        subscribeForm.reset();
-      });
+    const email = document.getElementById("email").value;
+    await db.collection("subscribers").add({
+      email,
+      timestamp: new Date()
+    });
+    alert("Subscribed successfully!");
+    subscribeForm.reset();
   });
 </script>
 
