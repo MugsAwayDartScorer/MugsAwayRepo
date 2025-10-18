@@ -19,7 +19,54 @@
         .menu-description dt font {
             color: #4FC3F7;
         }
+        /* Small spacing fixes for intro */
+        .intro {
+            margin-top: 0;
+        }
+        .intro p {
+            margin: 0;
+            padding: 2px 0;
+        }
+        /* Buttons */
+        #downloadBtn, #donateBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #downloadBtn:hover, #donateBtn:hover {
+            background-color: #45a049;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyB8TNP-UxQOM6_uIfMn2BU_tfXj9M-Y9JY",
+            authDomain: "mugsawayreviews.firebaseapp.com",
+            projectId: "mugsawayreviews",
+            storageBucket: "mugsawayreviews.firebasestorage.app",
+            messagingSenderId: "546187997609",
+            appId: "1:546187997609:web:2c97076d266865ffbd94b8",
+            measurementId: "G-5WNR8SMPZB"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
 </head>
 <body>
 
@@ -106,10 +153,6 @@
     <section id="reviews">
         <h2 class="section-title">User Reviews</h2>
 
-        <div class="review">
-            <p>Example review goes here (placeholder)</p>
-        </div>
-
         <form id="reviewForm" class="form-section">
             <h3>Submit Your Review</h3>
             <input id="name" type="text" placeholder="Your Name" required size="20">
@@ -148,10 +191,46 @@
         <p><em>Android version coming soon!</em></p>
     </footer>
 
-    <!-- JS Placeholders -->
-    <script src="js/reviews.js"></script>
-    <script src="js/downloads.js"></script>
-    <script src="js/subscribe.js"></script>
+    <!-- REVIEW SCRIPT -->
+    <script>
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewsSection = document.getElementById('reviews');
+
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const rating = document.getElementById('rating').value;
+            const comment = document.getElementById('comment').value;
+
+            // Add to Firestore
+            await db.collection('reviews').add({
+                name, rating, comment,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            reviewForm.reset();
+            loadReviews();
+        });
+
+        async function loadReviews() {
+            const snapshot = await db.collection('reviews')
+                                     .orderBy('timestamp', 'desc')
+                                     .get();
+
+            // Remove old reviews
+            document.querySelectorAll('.review-display').forEach(r => r.remove());
+
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                const div = document.createElement('div');
+                div.className = 'review-display review';
+                div.innerHTML = `<p><strong>${data.name}</strong> (${data.rating}⭐): ${data.comment}</p>`;
+                reviewsSection.appendChild(div);
+            });
+        }
+
+        loadReviews();
+    </script>
 
 </body>
 </html>
