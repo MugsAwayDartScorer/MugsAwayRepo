@@ -19,6 +19,26 @@
         .menu-description dt font {
             color: #4FC3F7;
         }
+        /* Download/Donate buttons container */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        #downloadBtn, #donateBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #downloadBtn:hover, #donateBtn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -50,12 +70,6 @@
             </a>
         </div>
     </section>
-
-    <!-- DOWNLOAD & SUBSCRIBER TOTALS (HIDDEN) -->
-    <!--
-    <p>Downloads: <span id="downloadCount">0</span></p>
-    <p>Subscribers: <span id="subscriberCount">0</span></p>
-    -->
 
     <!-- GAME MODES / SCREENSHOTS -->
     <section id="screenshots">
@@ -112,9 +126,7 @@
     <section id="reviews">
         <h2 class="section-title">User Reviews</h2>
 
-        <div class="review">
-            <p>Example review goes here (placeholder)</p>
-        </div>
+        <div id="reviewsContainer"></div>
 
         <form id="reviewForm" class="form-section">
             <h3>Submit Your Review</h3>
@@ -154,10 +166,66 @@
         <p><em>Android version coming soon!</em></p>
     </footer>
 
-    <!-- JS Placeholders -->
-    <script src="js/reviews.js"></script>
-    <script src="js/downloads.js"></script>
-    <script src="js/subscribe.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase App initialization
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyDVehTUqpkg0nUlf32mcm0cdv6xdeRSl-g",
+            authDomain: "mugsawayreviews-aa558.firebaseapp.com",
+            projectId: "mugsawayreviews-aa558",
+            storageBucket: "mugsawayreviews-aa558.firebasestorage.app",
+            messagingSenderId: "287971872109",
+            appId: "1:287971872109:web:c93f6333530c1f5304de64",
+            measurementId: "G-6B8PY49NNN"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        const reviewForm = document.getElementById("reviewForm");
+        const reviewsContainer = document.getElementById("reviewsContainer");
+
+        // Submit review
+        reviewForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const rating = document.getElementById("rating").value;
+            const comment = document.getElementById("comment").value;
+
+            try {
+                await addDoc(collection(db, "reviews"), {
+                    name,
+                    rating,
+                    comment,
+                    timestamp: new Date()
+                });
+                reviewForm.reset();
+                loadReviews();
+            } catch (err) {
+                alert("Error submitting review: " + err);
+            }
+        });
+
+        // Load reviews
+        async function loadReviews() {
+            reviewsContainer.innerHTML = "";
+            const q = query(collection(db, "reviews"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+                const r = doc.data();
+                const div = document.createElement("div");
+                div.classList.add("review");
+                div.innerHTML = `<strong>${r.name}</strong> (${r.rating}★)<br>${r.comment}`;
+                reviewsContainer.appendChild(div);
+            });
+        }
+
+        loadReviews();
+    </script>
 </body>
 </html>
