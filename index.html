@@ -7,32 +7,45 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Force dartboard images to 50% larger */
-        .title-img {
-            width: 75px;
-            height: auto;
-        }
+        .title-img { width: 75px; height: auto; }
         /* Indent menu-description further right */
-        .menu-description {
-            margin-left: 28ch;
-        }
-        .menu-description dt font {
-            color: #4FC3F7;
-        }
-        /* Center reviews container */
-        #reviewsContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .review {
-            max-width: 600px;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            background-color: #39464E;
-            color: #CCCCCC;
-        }
+        .menu-description { margin-left: 28ch; }
+        /* Ensure About text is blue */
+        .menu-description dt font { color: #4FC3F7; }
+
+        /* Center reviews */
+        #reviewsContainer { display: flex; flex-direction: column; align-items: center; }
+        .review { max-width: 600px; width: 100%; margin: 10px 0; padding: 15px; border-radius: 5px; background-color: #39464E; color: #CCCCCC; }
+
+        /* Download/Donate buttons */
+        #download-donate .btn-container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 0; }
+        #downloadBtn, #donateBtn { background-color: #4CAF50; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; }
+        #downloadBtn:hover, #donateBtn:hover { background-color: #45a049; }
+
+        section { padding: 40px 20px; }
+
+        /* Screenshots */
+        .mode, .menu-image { margin: 20px auto; }
+        .mode img, .menu-image img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+        /* Menu description */
+        .menu-description dt { color: #4FC3F7; font-weight: bold; margin-top: 10px; }
+        .menu-description dd { margin: 5px 0 10px 0; }
+
+        /* Forms */
+        .form-section { max-width: 400px; margin: 0 auto; }
+        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
+        textarea { resize: none; }
+
+        /* Manual link */
+        #manual a { color: #4FC3F7; text-decoration: none; }
+        #manual a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { background-color: #1E272C; padding: 20px; margin-top: 40px; color: #CCCCCC; }
+
+        /* Stats section */
+        #stats p { margin: 5px 0; font-size: 1.1em; }
     </style>
 </head>
 <body>
@@ -65,28 +78,29 @@
         </div>
     </section>
 
+    <!-- STATS -->
+    <section id="stats">
+        <p>Downloads: <span id="downloadCount">0</span></p>
+        <p>Page Visits: <span id="pageViewsCount">0</span></p>
+    </section>
+
     <!-- GAME MODES / SCREENSHOTS -->
     <section id="screenshots">
         <p>Screenshots from Android version (Coming Soon)</p>
-
         <div class="mode">
             <h3>501 Continuous Mode (default)</h3>
             <img src="assets/Main.png" alt="501 Continuous Mode Screenshot" class="mode-img" style="width:450px;height:999px;">
         </div>
-
         <div class="mode">
             <h3>101 Best of 3 Sets</h3>
             <img src="assets/101 Best of.jpg" alt="101 Best of 3 Sets Screenshot" class="mode-img" style="width:450px;height:999px;">
         </div>
-
         <div class="menu-image">
             <p><strong>Easy Menu for all modes</strong></p>
             <img src="assets/Menu black.png" alt="Menu Screenshot" class="menu-img" width="866" height="491">
-
             <dl class="menu-description">
                 <dt><font>Game Type:</font></dt>
                 <dd>101, 301, 501, 701, 1001</dd>
-
                 <dt><font>Match Format:</font></dt>
                 <dd>
                     Continuous Play (default)<br>
@@ -97,19 +111,14 @@
                     First 7 Legs<br>
                     Customize... Create your own match, Choose number of Sets/Legs
                 </dd>
-
                 <dt><font>Throwing Rule:</font></dt>
                 <dd>Alternative throw/Mugs Away (loser of previous leg throws first)</dd>
-
                 <dt><font>Toggle Bot:</font></dt>
                 <dd>Enable / Disable Bot</dd>
-
                 <dt><font>Favourites:</font></dt>
                 <dd>Save and load games</dd>
-
                 <dt><font>End Game/Stats:</font></dt>
                 <dd>Shows Statistics Screen</dd>
-
                 <dt><font>About:</font></dt>
                 <dd>Displays version number and Contact details</dd>
             </dl>
@@ -120,7 +129,6 @@
     <section id="reviews">
         <h2 class="section-title">User Reviews</h2>
         <div id="reviewsContainer"></div>
-
         <form id="reviewForm" class="form-section">
             <h3>Submit Your Review</h3>
             <input id="name" type="text" placeholder="Your Name" required size="20">
@@ -161,11 +169,9 @@
 
     <!-- Firebase & JS -->
     <script type="module">
-        // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, Timestamp, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, Timestamp, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-        // Your Firebase config
         const firebaseConfig = {
           apiKey: "AIzaSyDVehTUqpkg0nUlf32mcm0cdv6xdeRSl-g",
           authDomain: "mugsawayreviews-aa558.firebaseapp.com",
@@ -176,81 +182,63 @@
           measurementId: "G-6B8PY49NNN"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // SUBSCRIBE FORM
+        // Subscribe form
         const subscribeForm = document.getElementById("subscribeForm");
         subscribeForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const emailInput = document.getElementById("email");
-            const email = emailInput.value.trim();
-            if (email) {
+            const email = document.getElementById("email").value.trim();
+            if(email){
                 try {
-                    await addDoc(collection(db, "subscribers"), {
-                        email: email,
-                        timestamp: Timestamp.now()
-                    });
+                    await addDoc(collection(db,"subscribers"), {email, timestamp: Timestamp.now()});
                     alert("Thank you for subscribing!");
                     subscribeForm.reset();
-                } catch (error) {
-                    console.error("Error saving subscriber: ", error);
-                    alert("There was an error. Please try again.");
-                }
+                } catch(err){ console.error(err); alert("Error saving subscriber."); }
             }
         });
 
-        // REVIEW FORM
+        // Review form
         const reviewForm = document.getElementById("reviewForm");
         const reviewsContainer = document.getElementById("reviewsContainer");
-
-        reviewForm.addEventListener("submit", async (e) => {
+        reviewForm.addEventListener("submit", async (e)=>{
             e.preventDefault();
             const name = document.getElementById("name").value.trim();
             const rating = document.getElementById("rating").value;
             const comment = document.getElementById("comment").value.trim();
-
-            if (name && rating && comment) {
-                try {
-                    await addDoc(collection(db, "reviews"), {
-                        name: name,
-                        rating: parseInt(rating),
-                        comment: comment,
-                        timestamp: Timestamp.now()
-                    });
-
-                    const reviewDiv = document.createElement("div");
-                    reviewDiv.classList.add("review");
-                    reviewDiv.innerHTML = `<strong>${name}</strong> - ${"★".repeat(rating)}<br><p>${comment}</p>`;
-                    reviewsContainer.prepend(reviewDiv);
-
+            if(name && rating && comment){
+                try{
+                    await addDoc(collection(db,"reviews"), {name,rating,comment,timestamp: Timestamp.now()});
+                    // Add to page
+                    const div = document.createElement("div");
+                    div.className="review";
+                    div.innerHTML=`<strong>${name}</strong> - ${'★'.repeat(rating)}<p>${comment}</p>`;
+                    reviewsContainer.prepend(div);
                     reviewForm.reset();
-                    alert("Thank you! Your review has been submitted.");
-                } catch (error) {
-                    console.error("Error saving review: ", error);
-                    alert("There was an error. Please try again.");
-                }
+                }catch(err){ console.error(err); alert("Error saving review."); }
             }
         });
 
-        // LOAD EXISTING REVIEWS
-        async function loadReviews() {
-            try {
-                const reviewsSnapshot = await getDocs(query(collection(db, "reviews"), orderBy("timestamp", "desc")));
-                reviewsSnapshot.forEach(doc => {
-                    const data = doc.data();
-                    const reviewDiv = document.createElement("div");
-                    reviewDiv.classList.add("review");
-                    reviewDiv.innerHTML = `<strong>${data.name}</strong> - ${"★".repeat(data.rating)}<br><p>${data.comment}</p>`;
-                    reviewsContainer.appendChild(reviewDiv);
-                });
-            } catch (error) {
-                console.error("Error loading reviews: ", error);
-            }
-        }
+        // Counters
+        const downloadCountEl = document.getElementById("downloadCount");
+        const pageViewsCountEl = document.getElementById("pageViewsCount");
 
-        loadReviews();
+        async function updatePageViews(){
+            const docRef = doc(db,"counters","pageViews");
+            const snap = await getDoc(docRef);
+            if(!snap.exists()){ await setDoc(docRef,{count:1}); pageViewsCountEl.textContent=1; }
+            else{ await updateDoc(docRef,{count: increment(1)}); pageViewsCountEl.textContent = snap.data().count + 1; }
+        }
+        updatePageViews();
+
+        const downloadBtn = document.getElementById("downloadBtn");
+        downloadBtn.addEventListener("click", async ()=>{
+            const docRef = doc(db,"counters","downloads");
+            const snap = await getDoc(docRef);
+            if(!snap.exists()){ await setDoc(docRef,{count:1}); downloadCountEl.textContent=1; }
+            else{ await updateDoc(docRef,{count: increment(1)}); downloadCountEl.textContent = snap.data().count + 1; }
+        });
     </script>
 
 </body>
