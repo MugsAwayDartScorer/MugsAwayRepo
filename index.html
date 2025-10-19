@@ -8,29 +8,24 @@
     <style>
         /* Force dartboard images to 50% larger */
         .title-img {
-            width: 75px; 
+            width: 75px;
             height: auto;
         }
         /* Indent menu-description further right */
         .menu-description {
             margin-left: 28ch;
         }
-        /* Ensure About text is blue */
         .menu-description dt font {
             color: #4FC3F7;
         }
-
-        /* ============================
-           REVIEWS CENTERING
-        ============================ */
+        /* Center reviews container */
         #reviewsContainer {
             display: flex;
             flex-direction: column;
-            align-items: center; /* centers all child review divs */
+            align-items: center;
         }
-
         .review {
-            max-width: 600px; 
+            max-width: 600px;
             width: 100%;
             margin: 10px 0;
             padding: 15px;
@@ -124,26 +119,22 @@
     <!-- USER REVIEWS -->
     <section id="reviews">
         <h2 class="section-title">User Reviews</h2>
+        <div id="reviewsContainer"></div>
 
-        <div id="reviewsContainer">
-            <!-- Reviews will be appended here dynamically via Firebase -->
-
-            <!-- Review form -->
-            <form id="reviewForm" class="form-section">
-                <h3>Submit Your Review</h3>
-                <input id="name" type="text" placeholder="Your Name" required size="20">
-                <select id="rating" required>
-                    <option value="">Rating</option>
-                    <option value="1">&#9733;</option>
-                    <option value="2">&#9733;&#9733;</option>
-                    <option value="3">&#9733;&#9733;&#9733;</option>
-                    <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-                    <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                </select>
-                <textarea id="comment" rows="3" placeholder="Your review" required cols="20"></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-        </div>
+        <form id="reviewForm" class="form-section">
+            <h3>Submit Your Review</h3>
+            <input id="name" type="text" placeholder="Your Name" required size="20">
+            <select id="rating" required>
+                <option value="">Rating</option>
+                <option value="1">&#9733;</option>
+                <option value="2">&#9733;&#9733;</option>
+                <option value="3">&#9733;&#9733;&#9733;</option>
+                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+            </select>
+            <textarea id="comment" rows="3" placeholder="Your review" required cols="20"></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
     </section>
 
     <!-- SUBSCRIBE SECTION -->
@@ -172,7 +163,7 @@
     <script type="module">
         // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, Timestamp, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
         // Your Firebase config
         const firebaseConfig = {
@@ -189,13 +180,12 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Subscribe form handling
+        // SUBSCRIBE FORM
         const subscribeForm = document.getElementById("subscribeForm");
         subscribeForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const emailInput = document.getElementById("email");
             const email = emailInput.value.trim();
-
             if (email) {
                 try {
                     await addDoc(collection(db, "subscribers"), {
@@ -210,8 +200,58 @@
                 }
             }
         });
+
+        // REVIEW FORM
+        const reviewForm = document.getElementById("reviewForm");
+        const reviewsContainer = document.getElementById("reviewsContainer");
+
+        reviewForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const rating = document.getElementById("rating").value;
+            const comment = document.getElementById("comment").value.trim();
+
+            if (name && rating && comment) {
+                try {
+                    await addDoc(collection(db, "reviews"), {
+                        name: name,
+                        rating: parseInt(rating),
+                        comment: comment,
+                        timestamp: Timestamp.now()
+                    });
+
+                    const reviewDiv = document.createElement("div");
+                    reviewDiv.classList.add("review");
+                    reviewDiv.innerHTML = `<strong>${name}</strong> - ${"★".repeat(rating)}<br><p>${comment}</p>`;
+                    reviewsContainer.prepend(reviewDiv);
+
+                    reviewForm.reset();
+                    alert("Thank you! Your review has been submitted.");
+                } catch (error) {
+                    console.error("Error saving review: ", error);
+                    alert("There was an error. Please try again.");
+                }
+            }
+        });
+
+        // LOAD EXISTING REVIEWS
+        async function loadReviews() {
+            try {
+                const reviewsSnapshot = await getDocs(query(collection(db, "reviews"), orderBy("timestamp", "desc")));
+                reviewsSnapshot.forEach(doc => {
+                    const data = doc.data();
+                    const reviewDiv = document.createElement("div");
+                    reviewDiv.classList.add("review");
+                    reviewDiv.innerHTML = `<strong>${data.name}</strong> - ${"★".repeat(data.rating)}<br><p>${data.comment}</p>`;
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+            } catch (error) {
+                console.error("Error loading reviews: ", error);
+            }
+        }
+
+        loadReviews();
     </script>
 
 </body>
 </html>
-
