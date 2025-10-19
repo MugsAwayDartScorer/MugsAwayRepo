@@ -124,19 +124,20 @@ section {
 /* ============================
    REVIEWS
 ============================ */
-#reviews {
-    background-color: #2F3B43;
-    padding: 40px 20px;
-    border-radius: 8px;
-    margin: 20px;
+#reviewsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers all child review divs */
 }
 
 .review {
-    background-color: #39464E;
+    max-width: 600px; /* optional: keeps reviews from stretching too wide */
+    width: 100%;
+    margin: 10px 0;
     padding: 15px;
     border-radius: 5px;
-    max-width: 600px;
-    margin: 0 auto 20px auto;
+    background-color: #39464E; /* matches your previous style */
+    color: #CCCCCC;
 }
 
 /* ============================
@@ -180,3 +181,4 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
