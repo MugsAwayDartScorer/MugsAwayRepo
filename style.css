@@ -105,6 +105,8 @@ section {
 /* ============================
    MENU DESCRIPTION
 ============================ */
+.move-right {
+    margin-left: 40px;
 .menu-description {
     text-align: centre;
     margin-left: 28ch;
@@ -170,6 +172,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
