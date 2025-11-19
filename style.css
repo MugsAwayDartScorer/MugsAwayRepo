@@ -108,16 +108,9 @@ section {
 .menu-description { margin-left: 28ch; }
 
     color: #CCCCCC;
-}
 
-.menu-description dt {
-    color: #4FC3F7;
-    font-weight: bold;
-    margin-top: 10px;
-}
 
-.menu-description dd {
-    margin: 5px 0 10px 0;
+
 }
 
 /* ============================
@@ -169,6 +162,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
