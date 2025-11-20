@@ -107,7 +107,7 @@ section {
 ============================ */
 .menu-description {
     text-align: left;
-    margin-left: 0ch;
+    margin-left:28ch;
     color: #CCCCCC;
 }
 
@@ -181,6 +181,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
