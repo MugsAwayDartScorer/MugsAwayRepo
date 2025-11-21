@@ -103,14 +103,19 @@ section {
 }
 
 /* ============================
-   MENU DESCRIPTION
+   MENU DESCRIPTION (FIXED)
 ============================ */
+.menu-container {
+    max-width: 700px;         /* aligns with your screenshots above */
+    margin: 0 auto;           /* centers entire menu block */
+    text-align: left;
+}
+
 .menu-item {
     display: flex;
     align-items: flex-start;
     gap: 15px;
     margin-bottom: 25px;
-    margin-left: 56ch;   /* moves the whole block to the right */
 }
 
 .menu-item img {
@@ -122,39 +127,22 @@ section {
 .menu-item-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .menu-item-title {
     color: #4FC3F7;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.15em;
+    margin-bottom: 4px;
 }
 
 .menu-item-desc {
+    color: #CCCCCC;
     font-size: 0.95em;
     line-height: 1.3em;
 }
 
-.menu-item-text {
-    color: #CCCCCC;
-}
-
-.menu-description {
-    text-align: left;
-    margin-left: 56ch;
-    color: #CCCCCC;
-}
-
-.menu-description dt {
-    color: #4FC3F7;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.menu-description dd {
-    margin: 5px 0 10px 0;
-}
 
 /* ============================
    REVIEWS
@@ -216,6 +204,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
