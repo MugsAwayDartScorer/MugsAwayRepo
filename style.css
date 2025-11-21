@@ -1,4 +1,4 @@
-/* ============================
+ /* ============================
    GLOBAL STYLES
 ============================ */
 body {
@@ -103,34 +103,32 @@ section {
 }
 
 /* ============================
-   MENU DESCRIPTION (FIXED)
+   MENU DESCRIPTION (FINAL FIXED VERSION)
 ============================ */
 .menu-container {
-    max-width: 650px;         /* aligns with your screenshots above */
-    margin: 0 auto;           /* centers entire menu block */
-    text-align: left;
+    max-width: 650px;        /* aligns menu under screenshot */
+    margin: 0 auto;          /* centers the block */
+    text-align: left;        /* ensures titles + text are left aligned */
 }
 
 .menu-item {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    margin-bottom: 25px;
+    margin: 25px 0;
 }
 
 .menu-item img {
     width: 95px;
     height: 95px;
-    object-fit: cover;
 }
 
 .menu-item-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    text-align: left;        /* <-- forces title + description to the left */
+    text-align: left;
 }
-
 
 .menu-item-title {
     color: #4FC3F7;
@@ -145,23 +143,22 @@ section {
     line-height: 1.3em;
 }
 
-
 /* ============================
    REVIEWS
 ============================ */
 #reviewsContainer {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers all child review divs */
+    align-items: center;
 }
 
 .review {
-    max-width: 600px; /* optional: keeps reviews from stretching too wide */
+    max-width: 600px;
     width: 100%;
     margin: 10px 0;
     padding: 15px;
     border-radius: 5px;
-    background-color: #39464E; /* matches your previous style */
+    background-color: #39464E;
     color: #CCCCCC;
 }
 
@@ -206,11 +203,3 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
-
-
-
-
-
-
-
-
