@@ -105,6 +105,22 @@ section {
 /* ============================
    MENU DESCRIPTION
 ============================ */
+.menu-item {
+    display: flex;
+    align-items: center;   /* vertically centers text with the image */
+    margin-bottom: 20px;   /* spacing between items */
+}
+
+.menu-item img {
+    width: 95px;
+    height: 95px;
+    margin-right: 20px;    /* space between image and text */
+}
+
+.menu-item-text {
+    color: #CCCCCC;
+}
+
 .menu-description {
     text-align: left;
     margin-left: 56ch;
@@ -181,5 +197,6 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
