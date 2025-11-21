@@ -106,7 +106,7 @@ section {
    MENU DESCRIPTION (FIXED)
 ============================ */
 .menu-container {
-    max-width: 500px;         /* aligns with your screenshots above */
+    max-width: 650px;         /* aligns with your screenshots above */
     margin: 0 auto;           /* centers entire menu block */
     text-align: left;
 }
@@ -204,6 +204,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
