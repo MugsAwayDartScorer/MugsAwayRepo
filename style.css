@@ -106,7 +106,7 @@ section {
    MENU DESCRIPTION (FINAL FIXED VERSION)
 ============================ */
 .menu-container {
-    max-width: 650px;        /* aligns menu under screenshot */
+    max-width: 700px;        /* aligns menu under screenshot */
     margin: 0 auto;          /* centers the block */
     text-align: left;        /* ensures titles + text are left aligned */
 }
@@ -203,3 +203,4 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
