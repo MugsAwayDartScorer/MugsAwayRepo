@@ -128,7 +128,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    text-align: left;        /* <-- forces title + description to the left */
 }
+
 
 .menu-item-title {
     color: #4FC3F7;
@@ -204,6 +206,7 @@ footer {
     margin-top: 40px;
     color: #CCCCCC;
 }
+
 
 
 
