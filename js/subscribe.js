@@ -8,7 +8,7 @@ subscribeForm.addEventListener("submit", async e => {
 
     const email = document.getElementById("email").value.trim();
 
-    await addDoc(collection(db, "subscriptions"), {
+    await addDoc(collection(db, "subscribers"), {
         email,
         timestamp: Timestamp.now()
     });
@@ -34,3 +34,4 @@ subscribeForm.addEventListener("submit", async e => {
     subscribeForm.reset();
     alert("Subscribed!");
 });
+
