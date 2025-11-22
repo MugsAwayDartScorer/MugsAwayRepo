@@ -9,8 +9,15 @@
     <style>
         .title-img { width: 75px; height: auto; }
         #reviewsContainer { display: flex; flex-direction: column; align-items: center; }
-        .review { max-width: 600px; width: 100%; margin: 10px 0; padding: 15px;
-                  border-radius: 5px; background-color: #39464E; color: #CCCCCC; }
+        .review {
+            max-width: 600px;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #39464E;
+            color: #CCCCCC;
+        }
     </style>
 </head>
 
@@ -35,8 +42,9 @@
     <!-- DOWNLOAD + DONATE -->
     <section id="download-donate">
         <div class="btn-container">
-        <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
-
+            <a href="assets/Mugs Away.zip" download>
+                <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
+            </a>
             <a href="https://buymeacoffee.com/mugsaway" target="_blank">
                 <button id="donateBtn">Buy Me a Beer!</button>
             </a>
@@ -102,61 +110,14 @@
         <p><em>Android version coming soon!</em></p>
     </footer>
 
-    <!-- FIREBASE + OTHER JS -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import {
-            getFirestore, collection, addDoc, Timestamp, getDocs
-        } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+    <!-- FIREBASE APP INIT (global) -->
+    <script type="module" src="js/firebase-init.js"></script>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyDVehTUqpkg0nUlf32mcm0cdv6xdeRSl-g",
-            authDomain: "mugsawayreviews-aa558.firebaseapp.com",
-            projectId: "mugsawayreviews-aa558",
-            storageBucket: "mugsawayreviews-aa558.firebasestorage.app",
-            messagingSenderId: "287971872109",
-            appId: "1:287971872109:web:c93f6333530c1f5304de64",
-            measurementId: "G-6B8PY49NNN"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        /* ========== REVIEWS ========== */
-        async function loadReviews() {
-            const container = document.getElementById("reviewsContainer");
-            container.innerHTML = "";
-
-            const snapshot = await getDocs(collection(db, "reviews"));
-            snapshot.forEach(doc => {
-                const r = doc.data();
-                const div = document.createElement("div");
-                div.className = "review";
-                div.innerHTML = `<strong>${r.name}</strong> (${r.rating}★)<br>${r.comment}`;
-                container.prepend(div);
-            });
-        }
-        loadReviews();
-
-        document.getElementById("reviewForm").addEventListener("submit", async e => {
-            e.preventDefault();
-            const name = name.value.trim();
-            const rating = document.getElementById("rating").value;
-            const comment = comment.value.trim();
-
-            await addDoc(collection(db, "reviews"), {
-                name, rating, comment, timestamp: Timestamp.now()
-            });
-
-            e.target.reset();
-            loadReviews();
-        });
-
-    </script>
-
-    <!-- DOWNLOAD COUNTER MODULE -->
-    <script type="module" src="downloads.js"></script>
+    <!-- FEATURE SCRIPTS -->
+    <script type="module" src="js/reviews.js"></script>
+    <script type="module" src="js/downloads.js"></script>
+    <script type="module" src="js/pageviews.js"></script>
+    <script type="module" src="js/subscribe.js"></script>
 
 </body>
 </html>
-
