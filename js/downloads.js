@@ -1,14 +1,23 @@
-import { db } from "./firebase-init.js";
-import { doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+// js/downloads.js
+
+import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+const app = getApp();
+const db = getFirestore(app);
 
 const downloadBtn = document.getElementById("downloadBtn");
 
 downloadBtn.addEventListener("click", async () => {
     try {
-        const ref = doc(db, "stats", "main", "downloads");
-        await updateDoc(ref, { count: increment(1) });
-        console.log("Download recorded");
+        const docRef = doc(db, "stats", "main");
+
+        await updateDoc(docRef, {
+            downloads: increment(1)
+        });
+
+        console.log("Download recorded.");
     } catch (err) {
-        console.error("Download counter error:", err);
+        console.error("Error recording download:", err);
     }
 });
