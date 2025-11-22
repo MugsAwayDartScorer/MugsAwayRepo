@@ -1,7 +1,7 @@
-// js/downloads.js
-
-import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+// downloads.js
+// Firebase imports
+import { getFirestore, doc, updateDoc, increment, getDoc } from "firebase/firestore";
+import { getApp } from "firebase/app";
 
 const app = getApp();
 const db = getFirestore(app);
@@ -10,13 +10,11 @@ const downloadBtn = document.getElementById("downloadBtn");
 
 downloadBtn.addEventListener("click", async () => {
     try {
-        const docRef = doc(db, "stats", "main");
-
+        const docRef = doc(db, "counters", "downloads");
         await updateDoc(docRef, {
-            downloads: increment(1)
+            count: increment(1)
         });
-
-        console.log("Download recorded.");
+        console.log("Download recorded."); // hidden from page
     } catch (err) {
         console.error("Error recording download:", err);
     }
