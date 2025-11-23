@@ -9,8 +9,15 @@
     <style>
         .title-img { width: 75px; height: auto; }
         #reviewsContainer { display: flex; flex-direction: column; align-items: center; }
-        .review { max-width: 600px; width: 100%; margin: 10px 0; padding: 15px;
-                  border-radius: 5px; background-color: #39464E; color: #CCCCCC; }
+        .review {
+            max-width: 600px;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #39464E;
+            color: #CCCCCC;
+        }
     </style>
 </head>
 
@@ -88,7 +95,14 @@
         </form>
     </section>
 
-  
+    <!-- SUBSCRIBE -->
+    <section id="subscribe">
+        <h2 class="section-title">Get Android Release Updates</h2>
+        <form id="subscribeForm" class="form-section">
+            <input id="email" type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -96,20 +110,14 @@
         <p><em>Android version coming soon!</em></p>
     </footer>
 
- 
+    <!-- FIREBASE APP INIT (global) -->
+    <script type="module" src="js/firebase-init.js"></script>
 
-
-
-    <!-- DOWNLOAD COUNTER MODULE -->
-<script type="module" src="js/reviews.js"></script>
-<script type="module" src="js/downloads.js"></script>
-<script type="module" src="js/pageviews.js"></script>
-<script type="module" src="js/subscribe.js"></script>
-
+    <!-- FEATURE SCRIPTS -->
+    <script type="module" src="js/reviews.js"></script>
+    <script type="module" src="js/downloads.js"></script>
+    <script type="module" src="js/pageviews.js"></script>
+    <script type="module" src="js/subscribe.js"></script>
 
 </body>
 </html>
-
-
-
-
