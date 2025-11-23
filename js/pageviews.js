@@ -1,23 +1,22 @@
-// js/pageviews.js
-import { db } from "./firebase-init.js";
-import {
-    doc,
-    updateDoc,
-    increment
-} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+// js/pageviews.js (CORRECT Atomic Approach)
 
-async function recordPageView() {
+import { doc, updateDoc, increment } from 'firebase/firestore'; 
+// Assuming you import the `db` object from firebase-init.js
+
+const incrementPageView = async () => {
     try {
-        const docRef = doc(db, "stats/main/pageViews");
+        // 1. Define the reference to the document holding the counter
+        const counterRef = doc(db, "statistics", "websiteStats");
 
-        await updateDoc(docRef, {
-            count: increment(1)
+        // 2. Use FieldValue.increment(1) to atomically increase the count by 1
+        await updateDoc(counterRef, {
+            pageViews: increment(1) 
         });
 
-        console.log("Page view recorded.");
-    } catch (err) {
-        console.error("Error recording page view:", err);
+    } catch (error) {
+        console.error("Error incrementing page view counter:", error);
     }
-}
+};
 
-recordPageView();
+// Run the function immediately when the script loads
+incrementPageView();
