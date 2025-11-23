@@ -1,40 +1,52 @@
+// js/reviews.js
 import { db } from "./firebase-init.js";
 import {
     collection,
     addDoc,
-    getDocs,
-    Timestamp
+    Timestamp,
+    getDocs
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-const reviewsContainer = document.getElementById("reviewsContainer");
-const form = document.getElementById("reviewForm");
+/* ----- LOAD REVIEWS ----- */
+export async function loadReviews() {
+    const container = document.getElementById("reviewsContainer");
+    if (!container) return;
 
-async function loadReviews() {
-    reviewsContainer.innerHTML = "";
+    container.innerHTML = "";
 
     const snapshot = await getDocs(collection(db, "reviews"));
-    snapshot.forEach(docSnap => {
-        const r = docSnap.data();
+
+    snapshot.forEach(doc => {
+        const r = doc.data();
         const div = document.createElement("div");
         div.className = "review";
         div.innerHTML = `<strong>${r.name}</strong> (${r.rating}★)<br>${r.comment}`;
-        reviewsContainer.prepend(div);
+        container.prepend(div);
     });
 }
 
-loadReviews();
+/* ----- SUBMIT REVIEW ----- */
+const form = document.getElementById("reviewForm");
 
-form.addEventListener("submit", async e => {
-    e.preventDefault();
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const rating = document.getElementById("rating").value;
-    const comment = document.getElementById("comment").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const rating = document.getElementById("rating").value;
+        const comment = document.getElementById("comment").value.trim();
 
-    await addDoc(collection(db, "reviews"), {
-        name, rating, comment, timestamp: Timestamp.now()
+        await addDoc(collection(db, "reviews"), {
+            name,
+            rating,
+            comment,
+            timestamp: Timestamp.now()
+        });
+
+        form.reset();
+        loadReviews();
     });
+}
 
-    form.reset();
-    loadReviews();
-});
+/* auto-load on page start */
+loadReviews();
