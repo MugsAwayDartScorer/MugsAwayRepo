@@ -11,7 +11,7 @@ const downloadBtn = document.getElementById("downloadBtn");
 if (downloadBtn) {
     downloadBtn.addEventListener("click", async () => {
         try {
-            const docRef = doc(db, "stats/downloads");
+            const docRef = doc(db, "stats,downloads");
 
             await updateDoc(docRef, {
                 count: increment(1)
@@ -23,4 +23,5 @@ if (downloadBtn) {
         }
     });
 }
+
 
