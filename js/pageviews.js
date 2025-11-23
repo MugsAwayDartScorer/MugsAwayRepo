@@ -4,7 +4,7 @@ import { ref, runTransaction } from 'firebase/database';
 // Assuming you import the `db` (Realtime Database instance) 
 // from your firebase-init.js file.
 
-const PAGE_VIEWS_PATH = 'stats/website/pageViews'; // Adjust this path if necessary
+const PAGE_VIEWS_PATH = 'stats/main/pageViews'; // Adjust this path if necessary
 
 const incrementPageView = async () => {
     try {
