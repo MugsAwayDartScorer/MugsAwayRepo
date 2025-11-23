@@ -1,126 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mugs Away Dart Scoring App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugs Away Dart Scoring App</title>
+    <link rel="stylesheet" href="style.css">
 
-  <style>
-    /* small local styles */
-    .title-img { width: 75px; height: auto; }
-    #reviewsContainer { display:flex; flex-direction:column; align-items:center; gap:10px; }
-    .review { max-width:600px; width:100%; margin:10px 0; padding:15px; border-radius:5px; background:#39464E; color:#CCCCCC; text-align:left; }
-    .btn-container { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:12px 0; }
-    #downloadBtn, #donateBtn { padding:12px 18px; border-radius:8px; border:none; cursor:pointer; }
-    #downloadBtn { background:#4FC3F7; color:#002; }
-    #donateBtn { background:#ffcc00; color:#000; }
-  </style>
+    <style>
+        .title-img { width: 75px; height: auto; }
+        #reviewsContainer { display: flex; flex-direction: column; align-items: center; }
+        .review { max-width: 600px; width: 100%; margin: 10px 0; padding: 15px;
+                  border-radius: 5px; background-color: #39464E; color: #CCCCCC; }
+    </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header class="title-container" style="display:flex; justify-content:center; align-items:center; gap:16px; padding:20px;">
-    <img src="assets/dartboardnormal.png" class="title-img" alt="dartboard left">
-    <div class="title-text" style="text-align:center;">
-      <h1 style="margin:0; color:#fff;">Mugs Away</h1>
-      <h2 style="margin:0; color:#CCCCCC;">Dart Scoring App</h2>
-    </div>
-    <img src="assets/dartboardnormal.png" class="title-img" alt="dartboard right">
-  </header>
+    <!-- HEADER -->
+    <header class="title-container">
+        <img src="assets/dartboardnormal.png" class="title-img" alt="">
+        <div class="title-text">
+            <h1>Mugs Away</h1>
+            <h2>Dart Scoring App</h2>
+        </div>
+        <img src="assets/dartboardnormal.png" class="title-img" alt="">
+    </header>
 
-  <!-- INTRO -->
-  <section class="intro" style="text-align:center; padding:10px 16px;">
-    <p style="margin:6px 0;">Play 101, 301, 501, 701 and 1001 with a friend or against the Bot!</p>
-    <p style="margin:6px 0;">No fuss, straightforward scoring app for dart players.</p>
-  </section>
+    <!-- INTRO -->
+    <section class="intro">
+        <p>Play 101, 301, 501, 701 and 1001 with a friend or against the Bot!</p>
+        <p>No fuss, straightforward scoring app for dart players.</p>
+    </section>
 
-  <!-- DOWNLOAD + DONATE -->
-  <section id="download-donate" style="padding:20px;">
-    <div class="btn-container">
-      <!-- Use a plain button so JS can reliably intercept the click -->
-      <button id="downloadBtn" aria-label="Download Windows app">Download Windows App Free! (Zip file)</button>
-      <a href="https://buymeacoffee.com/mugsaway" target="_blank" rel="noopener">
-        <button id="donateBtn">Buy Me a Beer!</button>
-      </a>
-    </div>
-  </section>
+    <!-- DOWNLOAD + DONATE -->
+    <section id="download-donate">
+        <div class="btn-container">
+            <a href="assets/Mugs Away.zip" download>
+                <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
+            </a>
+            <a href="https://buymeacoffee.com/mugsaway" target="_blank">
+                <button id="donateBtn">Buy Me a Beer!</button>
+            </a>
+        </div>
+    </section>
 
-  <!-- SCREENSHOTS -->
-  <section id="screenshots" style="padding:20px; text-align:center;">
-    <p>Screenshots from Android version (Coming Soon)</p>
+    <!-- SCREENSHOTS -->
+    <section id="screenshots">
+        <p>Screenshots from Android version (Coming Soon)</p>
 
-    <div class="mode" style="margin:18px auto;">
-      <img src="assets/Default Screen.jpg" alt="Default screen" style="max-width:90%; height:auto;">
-    </div>
+        <div class="mode">
+            <img src="assets/Default Screen.jpg" style="width:450px;height:999px;">
+        </div>
+        <div class="menu-image">
+            <img src="assets/Stats Page.jpg" style="width:450px;height:999px;">
+        </div>
+        <div class="mode">
+            <h3>Handicap Mode</h3>
+            <img src="assets/Handicap Mode.jpg" style="width:450px;height:999px;">
+        </div>
+        <div class="mode">
+            <h3>Menu</h3>
+            <img src="assets/Menu1.jpg" style="width:574px;height:634px;">
+        </div>
+        <div class="mode">
+            <img src="assets/Menu 2.jpg" style="width:574px;height:533px;">
+        </div>
+    </section>
 
-    <div class="menu-image" style="margin:18px auto;">
-      <img src="assets/Stats Page.jpg" alt="Stats page" style="max-width:90%; height:auto;">
-    </div>
+    <!-- USER REVIEWS -->
+    <section id="reviews">
+        <h2 class="section-title">User Reviews</h2>
+        <div id="reviewsContainer"></div>
 
-    <div class="mode" style="margin:18px auto;">
-      <h3>Handicap Mode</h3>
-      <img src="assets/Handicap Mode.jpg" alt="Handicap mode" style="max-width:90%; height:auto;">
-    </div>
+        <form id="reviewForm" class="form-section">
+            <h3>Submit Your Review</h3>
+            <input id="name" type="text" placeholder="Your Name" required>
+            <select id="rating" required>
+                <option value="">Rating</option>
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
+            <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
 
-    <div class="mode" style="margin:18px auto;">
-      <h3>Menu</h3>
-      <img src="assets/Menu1.jpg" alt="Menu screenshot" style="max-width:90%; height:auto;">
-    </div>
+    <!-- SUBSCRIBE -->
+    <section id="subscribe">
+        <h2 class="section-title">Get Android Release Updates</h2>
+        <form id="subscribeForm" class="form-section">
+            <input id="email" type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
-    <div class="mode" style="margin:18px auto;">
-      <img src="assets/Menu 2.jpg" alt="Menu screenshot 2" style="max-width:90%; height:auto;">
-    </div>
-  </section>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Colin Prout</p>
+        <p><em>Android version coming soon!</em></p>
+    </footer>
 
-  <!-- USER REVIEWS -->
-  <section id="reviews" style="padding:20px;">
-    <h2 class="section-title">User Reviews</h2>
+    <!-- FIREBASE + OTHER JS -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import {
+            getFirestore, collection, addDoc, Timestamp, getDocs
+        } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-    <div id="reviewsContainer" aria-live="polite"></div>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDVehTUqpkg0nUlf32mcm0cdv6xdeRSl-g",
+            authDomain: "mugsawayreviews-aa558.firebaseapp.com",
+            projectId: "mugsawayreviews-aa558",
+            storageBucket: "mugsawayreviews-aa558.firebasestorage.app",
+            messagingSenderId: "287971872109",
+            appId: "1:287971872109:web:c93f6333530c1f5304de64",
+            measurementId: "G-6B8PY49NNN"
+        };
 
-    <form id="reviewForm" class="form-section" style="max-width:480px; margin:12px auto; display:flex; flex-direction:column; gap:8px;">
-      <h3 style="margin:0;">Submit Your Review</h3>
-      <input id="name" type="text" placeholder="Your Name" required>
-      <select id="rating" required>
-        <option value="">Rating</option>
-        <option value="1">★</option>
-        <option value="2">★★</option>
-        <option value="3">★★★</option>
-        <option value="4">★★★★</option>
-        <option value="5">★★★★★</option>
-      </select>
-      <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
-      <button type="submit">Submit Review</button>
-    </form>
-  </section>
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-  <!-- SUBSCRIBE -->
-  <section id="subscribe" style="padding:20px;">
-    <h2 class="section-title">Get Android Release Updates</h2>
-    <form id="subscribeForm" class="form-section" style="max-width:480px; margin:12px auto; display:flex; gap:8px; flex-direction:column;">
-      <input id="email" type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
+        /* ========== REVIEWS ========== */
+        async function loadReviews() {
+            const container = document.getElementById("reviewsContainer");
+            container.innerHTML = "";
 
-  <!-- FOOTER -->
-  <footer style="padding:20px; background:#1E272C; color:#CCCCCC; text-align:center;">
-    <p>© 2025 Colin Prout</p>
-    <p><em>Android version coming soon!</em></p>
-  </footer>
+            const snapshot = await getDocs(collection(db, "reviews"));
+            snapshot.forEach(doc => {
+                const r = doc.data();
+                const div = document.createElement("div");
+                div.className = "review";
+                div.innerHTML = `<strong>${r.name}</strong> (${r.rating}★)<br>${r.comment}`;
+                container.prepend(div);
+            });
+        }
+        loadReviews();
 
-  <!-- ============================
-       FIREBASE INIT (shared module)
-       Must exist at /js/firebase-init.js
-       ============================ -->
-  <script type="module" src="js/firebase-init.js"></script>
+        document.getElementById("reviewForm").addEventListener("submit", async e => {
+            e.preventDefault();
+            const name = name.value.trim();
+            const rating = document.getElementById("rating").value;
+            const comment = comment.value.trim();
 
-  <!-- Load feature modules (from the js/ folder) -->
-  <script type="module" src="js/reviews.js"></script>
-  <script type="module" src="js/downloads.js"></script>
-  <script type="module" src="js/pageviews.js"></script>
-  <script type="module" src="js/subscribe.js"></script>
+            await addDoc(collection(db, "reviews"), {
+                name, rating, comment, timestamp: Timestamp.now()
+            });
+
+            e.target.reset();
+            loadReviews();
+        });
+
+    </script>
+
+    <!-- DOWNLOAD COUNTER MODULE -->
+    <script type="module" src="downloads.js"></script>
 
 </body>
 </html>
