@@ -1,21 +1,15 @@
-// js/pageviews.js 
-
-// Make sure you import the necessary functions
-import { doc, updateDoc, increment } from 'firebase/firestore'; 
-// Assuming `db` is your initialized Firestore instance from firebase-init.js
+import { doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { db } from "./firebase-init.js";
 
 const incrementPageView = async () => {
     try {
-        // 1. Reference the document: /stats/main
+        // Reference the document specified in your security rules: /stats/main
         const counterRef = doc(db, "stats", "main"); 
 
-        // 2. Use the atomic increment function on the pageViews field
         await updateDoc(counterRef, {
-            pageViews: increment(1) 
+            pageViews: increment(1) // <-- THIS IS THE ATOMIC FIX
         });
         
-        console.log("Page view counter successfully incremented.");
-
     } catch (error) {
         console.error("Error incrementing page view counter:", error);
     }
