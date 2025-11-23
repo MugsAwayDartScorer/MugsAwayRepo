@@ -1,5 +1,4 @@
 import { doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { db } from "./firebase-init.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('downloadBtn');
@@ -20,3 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
