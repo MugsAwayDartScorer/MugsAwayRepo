@@ -22,9 +22,9 @@
         .btn-container a { 
             text-decoration: none; 
         }
-        /* Style for instructions to reduce previous vertical spacing */
-        .instructions {
-            margin-top: 5px; /* Adjust this value if needed */
+        /* ADDED: Center aligns content within the button container */
+        .btn-container {
+            text-align: center;
         }
     </style>
 </head>
@@ -49,15 +49,15 @@
                 <a href="assets/Mugs Away.zip" download>
                     <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
                 </a>
+                                <p class="instructions">
+                    Unzip to a folder of your choice<br>
+                    Run the mugsawaywindows .exe<br>
+                    Play Darts!
+                </p>
                 <a href="https://buymeacoffee.com/mugsaway" target="_blank">
                     <button id="donateBtn">Buy Me a Beer!</button>
                 </a>
             </div>
-            <p class="instructions">
-                Unzip to a folder of your choice<br>
-                Run the mugsawaywindows .exe<br>
-                Play Darts!
-            </p>
         </section>
         
                 <p>                                 </p>
@@ -112,7 +112,7 @@
     </section>
 
         <section id="subscribe">
-        <h2 class="section-title">Get Android Release Updates </h2>
+        <h2 class="section-title">Get Android Release Updates  </h2>
         <form id="subscribeForm" class="form-section">
             <input id="email" type="email" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
