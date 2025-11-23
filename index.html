@@ -18,27 +18,34 @@
             background-color: #39464E;
             color: #CCCCCC;
         }
-        /* NEW: Reduce default margin on paragraphs inside the intro section */
-        .intro p {
-            margin-bottom: 5px; 
-        }
+        /* AGGRESSIVE SPACING REDUCTION */
         
-        /* NEW: Minimize spacing around the download/donate section */
-        #download-donate {
-            margin-top: 5px;
-            margin-bottom: 5px; 
+        /* 1. Zero out spacing on all sections in the main content flow */
+        .intro, #download-donate, #screenshots {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* 2. Zero out spacing on paragraphs inside the intro section */
+        .intro p {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
         }
         
         /* Style added to remove the default hyperlink underline from buttons */
         .btn-container a { 
             text-decoration: none; 
         }
-        /* Style for instructions to ensure centering and tight grouping */
+        
+        /* 3. Style for instructions, keeping it tight */
         .instructions {
             text-align: center; 
-            margin: 0 auto; 
+            margin: 0 auto; /* Centers the block */
             width: fit-content; 
-            padding-top: 5px; 
+            padding-top: 2px; /* Minimal padding above the text */
+            padding-bottom: 2px; /* Minimal padding below the text */
         }
     </style>
 </head>
@@ -118,7 +125,7 @@
     </section>
 
         <section id="subscribe">
-        <h2 class="section-title">Get Android Release Updates  </h2>
+        <h2 class="section-title">Get Android Release Updates   </h2>
         <form id="subscribeForm" class="form-section">
             <input id="email" type="email" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
