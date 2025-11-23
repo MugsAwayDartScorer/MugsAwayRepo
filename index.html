@@ -123,35 +123,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        /* ========== REVIEWS ========== */
-        async function loadReviews() {
-            const container = document.getElementById("reviewsContainer");
-            container.innerHTML = "";
-
-            const snapshot = await getDocs(collection(db, "reviews"));
-            snapshot.forEach(doc => {
-                const r = doc.data();
-                const div = document.createElement("div");
-                div.className = "review";
-                div.innerHTML = `<strong>${r.name}</strong> (${r.rating}★)<br>${r.comment}`;
-                container.prepend(div);
-            });
-        }
-        loadReviews();
-
-        document.getElementById("reviewForm").addEventListener("submit", async e => {
-            e.preventDefault();
-            const name = name.value.trim();
-            const rating = document.getElementById("rating").value;
-            const comment = comment.value.trim();
-
-            await addDoc(collection(db, "reviews"), {
-                name, rating, comment, timestamp: Timestamp.now()
-            });
-
-            e.target.reset();
-            loadReviews();
-        });
 
     </script>
 
@@ -164,4 +135,5 @@
 
 </body>
 </html>
+
 
