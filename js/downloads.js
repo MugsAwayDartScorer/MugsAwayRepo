@@ -1,28 +1,27 @@
-// js/downloads.js
-import { db } from "./firebase-init.js";
-import {
-    doc,
-    updateDoc,
-    increment
-} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+// js/downloads.js (CORRECT Atomic Approach)
 
-const downloadBtn = document.getElementById("downloadBtn");
+import { doc, updateDoc, increment } from 'firebase/firestore';
+// Assuming you import the `db` object from firebase-init.js
 
-if (downloadBtn) {
-    downloadBtn.addEventListener("click", async () => {
-        try {
-            const docRef = doc(db, "stats,main,downloads");
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('downloadBtn');
 
-            await updateDoc(docRef, {
-                count: increment(1)
-            });
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', async () => {
+            try {
+                // 1. Define the reference to the document holding the counter
+                const counterRef = doc(db, "statistics", "websiteStats");
 
-            console.log("Download recorded.");
-        } catch (err) {
-            console.error("Error recording download:", err);
-        }
-    });
-}
+                // 2. Use FieldValue.increment(1) for the atomic update
+                await updateDoc(counterRef, {
+                    downloads: increment(1)
+                });
+                
+                // Optional: You can add logic here to display the new total count if needed
 
-
-
+            } catch (error) {
+                console.error("Error incrementing download counter:", error);
+            }
+        });
+    }
+});
