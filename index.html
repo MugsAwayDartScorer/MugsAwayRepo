@@ -1,155 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HydraPerformance</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mugs Away Dart Scoring App</title>
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Your Original CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Firebase -->
-    <script type="module" src="firebase-init.js"></script>
+  <style>
+    /* small local styles */
+    .title-img { width: 75px; height: auto; }
+    #reviewsContainer { display:flex; flex-direction:column; align-items:center; gap:10px; }
+    .review { max-width:600px; width:100%; margin:10px 0; padding:15px; border-radius:5px; background:#39464E; color:#CCCCCC; text-align:left; }
+    .btn-container { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:12px 0; }
+    #downloadBtn, #donateBtn { padding:12px 18px; border-radius:8px; border:none; cursor:pointer; }
+    #downloadBtn { background:#4FC3F7; color:#002; }
+    #donateBtn { background:#ffcc00; color:#000; }
+  </style>
 </head>
 <body>
 
-    <!-- =============================== -->
-    <!-- TITLE SECTION (unchanged) -->
-    <!-- =============================== -->
-    <div class="title-container">
-        <img src="images/logo.png" class="title-img">
-        <div class="title-text">
-            <h1>HydraPerformance</h1>
-            <h2>Enhance Your Farming Simulator</h2>
-        </div>
+  <!-- HEADER -->
+  <header class="title-container" style="display:flex; justify-content:center; align-items:center; gap:16px; padding:20px;">
+    <img src="assets/dartboardnormal.png" class="title-img" alt="dartboard left">
+    <div class="title-text" style="text-align:center;">
+      <h1 style="margin:0; color:#fff;">Mugs Away</h1>
+      <h2 style="margin:0; color:#CCCCCC;">Dart Scoring App</h2>
+    </div>
+    <img src="assets/dartboardnormal.png" class="title-img" alt="dartboard right">
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro" style="text-align:center; padding:10px 16px;">
+    <p style="margin:6px 0;">Play 101, 301, 501, 701 and 1001 with a friend or against the Bot!</p>
+    <p style="margin:6px 0;">No fuss, straightforward scoring app for dart players.</p>
+  </section>
+
+  <!-- DOWNLOAD + DONATE -->
+  <section id="download-donate" style="padding:20px;">
+    <div class="btn-container">
+      <!-- Use a plain button so JS can reliably intercept the click -->
+      <button id="downloadBtn" aria-label="Download Windows app">Download Windows App Free! (Zip file)</button>
+      <a href="https://buymeacoffee.com/mugsaway" target="_blank" rel="noopener">
+        <button id="donateBtn">Buy Me a Beer!</button>
+      </a>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screenshots" style="padding:20px; text-align:center;">
+    <p>Screenshots from Android version (Coming Soon)</p>
+
+    <div class="mode" style="margin:18px auto;">
+      <img src="assets/Default Screen.jpg" alt="Default screen" style="max-width:90%; height:auto;">
     </div>
 
-    <!-- =============================== -->
-    <!-- INTRO TEXT -->
-    <!-- =============================== -->
-    <div class="intro">
-        <p>Experience a new level of performance and control.</p>
-        <p>Optimized game settings at the press of a button.</p>
+    <div class="menu-image" style="margin:18px auto;">
+      <img src="assets/Stats Page.jpg" alt="Stats page" style="max-width:90%; height:auto;">
     </div>
 
-    <!-- =============================== -->
-    <!-- DOWNLOAD + DONATE -->
-    <!-- =============================== -->
-    <section id="download-donate">
-        <div class="btn-container">
-            <a id="downloadLink" href="#" download>
-                <button id="downloadBtn">Download</button>
-            </a>
-            <button id="donateBtn" onclick="window.location.href='https://www.buymeacoffee.com/'">Donate</button>
-        </div>
+    <div class="mode" style="margin:18px auto;">
+      <h3>Handicap Mode</h3>
+      <img src="assets/Handicap Mode.jpg" alt="Handicap mode" style="max-width:90%; height:auto;">
+    </div>
 
-        <p>Total Downloads: <span id="downloadCount">0</span></p>
-        <p>Page Views: <span id="pageViewCount">0</span></p>
-    </section>
+    <div class="mode" style="margin:18px auto;">
+      <h3>Menu</h3>
+      <img src="assets/Menu1.jpg" alt="Menu screenshot" style="max-width:90%; height:auto;">
+    </div>
 
-    <!-- =============================== -->
-    <!-- MAIN IMAGE -->
-    <!-- =============================== -->
-    <section>
-        <div class="menu-image">
-            <img src="images/menu.png">
-        </div>
-    </section>
+    <div class="mode" style="margin:18px auto;">
+      <img src="assets/Menu 2.jpg" alt="Menu screenshot 2" style="max-width:90%; height:auto;">
+    </div>
+  </section>
 
-    <!-- =============================== -->
-    <!-- MENU + DESCRIPTIONS -->
-    <!-- (Your layout restored exactly) -->
-    <!-- =============================== -->
-    <section>
-        <div class="menu-container">
-            
-            <div class="menu-item">
-                <img src="images/boost.png">
-                <div class="menu-item-text">
-                    <div class="menu-item-title">Boost Mode</div>
-                    <div class="menu-item-desc">
-                        Maximize system resources for smoother gameplay.
-                    </div>
-                </div>
-            </div>
+  <!-- USER REVIEWS -->
+  <section id="reviews" style="padding:20px;">
+    <h2 class="section-title">User Reviews</h2>
 
-            <div class="menu-item">
-                <img src="images/cpu.png">
-                <div class="menu-item-text">
-                    <div class="menu-item-title">CPU Balance</div>
-                    <div class="menu-item-desc">
-                        Redistributes CPU usage for optimal efficiency.
-                    </div>
-                </div>
-            </div>
+    <div id="reviewsContainer" aria-live="polite"></div>
 
-            <div class="menu-item">
-                <img src="images/logs.png">
-                <div class="menu-item-text">
-                    <div class="menu-item-title">Log Cleaner</div>
-                    <div class="menu-item-desc">
-                        Removes unnecessary logs to keep the game clean.
-                    </div>
-                </div>
-            </div>
+    <form id="reviewForm" class="form-section" style="max-width:480px; margin:12px auto; display:flex; flex-direction:column; gap:8px;">
+      <h3 style="margin:0;">Submit Your Review</h3>
+      <input id="name" type="text" placeholder="Your Name" required>
+      <select id="rating" required>
+        <option value="">Rating</option>
+        <option value="1">★</option>
+        <option value="2">★★</option>
+        <option value="3">★★★</option>
+        <option value="4">★★★★</option>
+        <option value="5">★★★★★</option>
+      </select>
+      <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  </section>
 
-        </div>
-    </section>
+  <!-- SUBSCRIBE -->
+  <section id="subscribe" style="padding:20px;">
+    <h2 class="section-title">Get Android Release Updates</h2>
+    <form id="subscribeForm" class="form-section" style="max-width:480px; margin:12px auto; display:flex; gap:8px; flex-direction:column;">
+      <input id="email" type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
 
-    <!-- =============================== -->
-    <!-- REVIEWS -->
-    <!-- =============================== -->
-    <section id="reviews">
-        <h2>User Reviews</h2>
-        <div id="reviewsContainer"></div>
-    </section>
+  <!-- FOOTER -->
+  <footer style="padding:20px; background:#1E272C; color:#CCCCCC; text-align:center;">
+    <p>© 2025 Colin Prout</p>
+    <p><em>Android version coming soon!</em></p>
+  </footer>
 
-    <!-- =============================== -->
-    <!-- SUBMIT REVIEW -->
-    <!-- =============================== -->
-    <section class="form-section">
-        <h2>Leave a Review</h2>
+  <!-- ============================
+       FIREBASE INIT (shared module)
+       Must exist at /js/firebase-init.js
+       ============================ -->
+  <script type="module" src="js/firebase-init.js"></script>
 
-        <input id="reviewName" placeholder="Your name">
-        
-        <select id="reviewRating">
-            <option value="5">5 - Excellent</option>
-            <option value="4">4 - Great</option>
-            <option value="3">3 - Good</option>
-            <option value="2">2 - Poor</option>
-            <option value="1">1 - Terrible</option>
-        </select>
-
-        <textarea id="reviewMessage" rows="4" placeholder="Your review"></textarea>
-
-        <button onclick="submitReview()">Submit Review</button>
-    </section>
-
-    <!-- =============================== -->
-    <!-- SUBSCRIBE FORM -->
-    <!-- =============================== -->
-    <section class="form-section">
-        <h2>Subscribe</h2>
-        <input id="emailInput" placeholder="Email">
-        <button onclick="subscribe()">Subscribe</button>
-        <p id="subscribeStatus"></p>
-    </section>
-
-    <!-- =============================== -->
-    <!-- MANUAL LINK -->
-    <!-- =============================== -->
-    <section id="manual">
-        <p><a href="manual.pdf" target="_blank">Read the Manual</a></p>
-    </section>
-
-    <footer>
-        <p>© 2025 HydraPerformance</p>
-    </footer>
-
-    <!-- =============================== -->
-    <!-- MAIN JS -->
-    <!-- =============================== -->
-    <script type="module" src="main.js"></script>
+  <!-- Load feature modules (from the js/ folder) -->
+  <script type="module" src="js/reviews.js"></script>
+  <script type="module" src="js/downloads.js"></script>
+  <script type="module" src="js/pageviews.js"></script>
+  <script type="module" src="js/subscribe.js"></script>
 
 </body>
 </html>
