@@ -104,20 +104,22 @@ section {
 
 /* ============================
    🔧 FINAL BOTTOM IMAGE FIX
-   Original size, top-left aligned, no shrink
+   Original size, pixel-perfect alignment
 ============================ */
 
 /* Bottom image itself */
 .bottom-shot {
     display: block;
-    width: 905px;        /* original width */
-    height: 137px;       /* original height */
-    margin: 0;           /* top-left corner stays in place */
+    width: 905px;          /* original width */
+    height: 137px;         /* original height */
+    position: relative;    /* allows precise movement */
+    left: 20px;            /* adjust to line up perfectly */
+    top: 0;                /* adjust vertically if needed */
 }
 
 /* Align its parent container */
 #screenshots .mode:last-child {
-    text-align: left;    /* prevents centering */
+    text-align: left;      /* prevents centering */
 }
 
 /* ============================
