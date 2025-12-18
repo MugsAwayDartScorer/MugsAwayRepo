@@ -43,6 +43,15 @@ body {
     height: auto;
 }
 
+/* 🔒 HARD LOCK HEADER IMAGES */
+.title-container img {
+    width: 75px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+    max-width: none;
+}
+
 /* ============================
    INTRO
 ============================ */
@@ -101,25 +110,20 @@ section {
     height: auto;
 }
 
-
 /* ============================
-   🔧 FINAL BOTTOM IMAGE FIX
-   Original size, pixel-perfect alignment
+   BOTTOM IMAGE FIX
 ============================ */
-
-/* Bottom image itself */
 .bottom-shot {
     display: block;
-    width: 905px;          /* original width */
-    height: 137px;         /* original height */
-    position: relative;    /* allows precise movement */
-    left: 168px;            /* adjust to line up perfectly */
-    top: 0;                /* adjust vertically if needed */
+    width: 905px;
+    height: 137px;
+    position: relative;
+    left: 168px;
+    top: 0;
 }
 
-/* Align its parent container */
 #screenshots .mode:last-child {
-    text-align: left;      /* prevents centering */
+    text-align: left;
 }
 
 /* ============================
@@ -170,11 +174,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-
-
-
-
-
-
-
