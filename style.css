@@ -109,7 +109,7 @@ section {
 ============================ */
 .bottom-shot {
     display: block;
-    margin: 0;           /* keeps top-left corner in place */
+    margin: 100;           /* keeps top-left corner in place */
     width: 905px;        /* match width of Menu1 screenshot */
     height: 137;        /* maintain aspect ratio */
 }
@@ -162,5 +162,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
