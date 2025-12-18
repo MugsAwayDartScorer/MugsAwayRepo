@@ -107,9 +107,12 @@ section {
    ONLY affects the bottom screenshot
 ============================ */
 #screenshots .mode:last-child img {
-    width: 574px;    /* aligns with Menu image above */
-    height: 137;
+    width: 574px;    /* same as Menu1 */
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
+
 
 /* ============================
    REVIEWS
@@ -159,6 +162,7 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
 
