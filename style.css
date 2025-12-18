@@ -113,7 +113,7 @@ section {
     width: 905px;          /* original width */
     height: 137px;         /* original height */
     position: relative;    /* allows precise movement */
-    left: 173px;            /* adjust to line up perfectly */
+    left: 168px;            /* adjust to line up perfectly */
     top: 0;                /* adjust vertically if needed */
 }
 
@@ -170,6 +170,7 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
 
