@@ -108,7 +108,7 @@ section {
 ============================ */
 #screenshots .mode:last-child img {
     width: 574px;    /* aligns with Menu image above */
-    height: auto;
+    height: 137;
 }
 
 /* ============================
@@ -159,5 +159,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
