@@ -103,15 +103,23 @@ section {
 }
 
 /* ============================
-   🔧 BOTTOM IMAGE FIX
-   Only affects About Instrutions.jpg
-   Keeps top-left corner fixed and proportional
+   🔧 FINAL BOTTOM IMAGE FIX
+   Top-left aligned, correct size, proportional
 ============================ */
+
+/* Target the bottom image itself */
 .bottom-shot {
     display: block;
     margin: 0;           /* keeps top-left corner in place */
-    width: 905px;        /* match width of Menu1 screenshot */
-    height: 137;        /* maintain aspect ratio */
+    width: 574px;        /* match width of Menu1 screenshot */
+    height: auto;        /* maintain aspect ratio */
+}
+
+/* Force the parent .mode container to align left like images above */
+#screenshots .mode:last-child {
+    text-align: left;    /* prevents centering */
+    margin-left: auto;   /* optional: aligns left within section */
+    margin-right: auto;  /* keeps it centered horizontally if needed */
 }
 
 /* ============================
@@ -162,8 +170,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-
-
-
-
