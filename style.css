@@ -104,22 +104,20 @@ section {
 
 /* ============================
    🔧 FINAL BOTTOM IMAGE FIX
-   Top-left aligned, correct size, proportional
+   Original size, top-left aligned, no shrink
 ============================ */
 
-/* Target the bottom image itself */
+/* Bottom image itself */
 .bottom-shot {
     display: block;
-    margin: 0;           /* keeps top-left corner in place */
-    width: 574px;        /* match width of Menu1 screenshot */
-    height: auto;        /* maintain aspect ratio */
+    width: 905px;        /* original width */
+    height: 137px;       /* original height */
+    margin: 0;           /* top-left corner stays in place */
 }
 
-/* Force the parent .mode container to align left like images above */
+/* Align its parent container */
 #screenshots .mode:last-child {
     text-align: left;    /* prevents centering */
-    margin-left: auto;   /* optional: aligns left within section */
-    margin-right: auto;  /* keeps it centered horizontally if needed */
 }
 
 /* ============================
