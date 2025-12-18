@@ -89,18 +89,18 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS
+   SCREENSHOTS (SCOPED)
 ============================ */
-.mode {
+#screenshots .mode {
     margin: 20px auto;
 }
 
-.mode img {
+#screenshots .mode img {
     display: block;
     margin: 0 auto;
-    max-width: 100%;
     height: auto;
 }
+
 
 /* ============================
    🔧 FINAL BOTTOM IMAGE FIX
@@ -170,6 +170,7 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
 
