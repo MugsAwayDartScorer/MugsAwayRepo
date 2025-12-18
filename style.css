@@ -103,16 +103,15 @@ section {
 }
 
 /* ============================
-   🔧 SINGLE, SURGICAL FIX
-   ONLY affects the bottom screenshot
+   🔧 SURGICAL FIX
+   ONLY affects bottom screenshot
 ============================ */
-#screenshots .mode:last-child img {
-    width: 574px;    /* same as Menu1 */
+.bottom-shot {
+    width: 574px;    /* match width of Menu1 screenshot */
     height: auto;
     display: block;
     margin: 0 auto;
 }
-
 
 /* ============================
    REVIEWS
@@ -162,7 +161,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-
-
-
