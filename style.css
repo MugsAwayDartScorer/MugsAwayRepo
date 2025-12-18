@@ -110,7 +110,7 @@ section {
     display: block;
     margin: 0;           /* keep top-left position */
     transform-origin: top left; /* scale from top-left corner */
-    transform: scale(2.4);      /* increase size 140% */
+    transform: scale(1.42);      /* increase size 140% */
 }
 
 
@@ -162,5 +162,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
