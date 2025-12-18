@@ -18,7 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px 20px;
+    padding: 20px;
 }
 
 .title-text {
@@ -36,7 +36,6 @@ body {
 .title-text h2 {
     font-size: 1.5em;
     margin: 0;
-    color: #CCCCCC;
 }
 
 .title-img {
@@ -45,29 +44,25 @@ body {
 }
 
 /* ============================
-   INTRO TEXT
+   INTRO
 ============================ */
-.intro {
-    margin-top: 0;
-}
-
 .intro p {
     margin: 0;
     padding: 2px 0;
 }
 
 /* ============================
-   DOWNLOAD & DONATE BUTTONS
+   DOWNLOAD / DONATE
 ============================ */
 #download-donate .btn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-bottom: 0;
 }
 
-#downloadBtn, #donateBtn {
+#downloadBtn,
+#donateBtn {
     background-color: #4CAF50;
     color: white;
     padding: 15px 30px;
@@ -77,8 +72,13 @@ body {
     cursor: pointer;
 }
 
-#downloadBtn:hover, #donateBtn:hover {
+#downloadBtn:hover,
+#donateBtn:hover {
     background-color: #45a049;
+}
+
+.instructions {
+    margin: 0;
 }
 
 /* ============================
@@ -89,13 +89,13 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS / MODES
+   SCREENSHOTS
 ============================ */
-.mode, .menu-image {
+.mode {
     margin: 20px auto;
 }
 
-.mode img, .menu-image img {
+.mode img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
@@ -103,44 +103,12 @@ section {
 }
 
 /* ============================
-   MENU DESCRIPTION (FINAL FIXED VERSION)
+   🔧 SINGLE, SURGICAL FIX
+   ONLY affects the bottom screenshot
 ============================ */
-.menu-container {
-    max-width: 700px;        /* aligns menu under screenshot */
-    margin: 0 auto;          /* centers the block */
-    text-align: left;        /* ensures titles + text are left aligned */
-}
-
-.menu-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin: 25px 0;
-}
-
-.menu-item img {
-    width: 95px;
-    height: 95px;
-}
-
-.menu-item-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.menu-item-title {
-    color: #4FC3F7;
-    font-weight: bold;
-    font-size: 1.15em;
-    margin-bottom: 4px;
-}
-
-.menu-item-desc {
-    color: #CCCCCC;
-    font-size: 0.95em;
-    line-height: 1.3em;
+#screenshots .mode:last-child img {
+    width: 574px;    /* aligns with Menu image above */
+    height: auto;
 }
 
 /* ============================
@@ -159,7 +127,6 @@ section {
     padding: 15px;
     border-radius: 5px;
     background-color: #39464E;
-    color: #CCCCCC;
 }
 
 /* ============================
@@ -170,7 +137,9 @@ section {
     margin: 0 auto;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -183,28 +152,10 @@ textarea {
 }
 
 /* ============================
-   MANUAL LINK
-============================ */
-#manual a {
-    color: #4FC3F7;
-    text-decoration: none;
-}
-
-#manual a:hover {
-    text-decoration: underline;
-}
-
-/* ============================
    FOOTER
 ============================ */
 footer {
     background-color: #1E272C;
     padding: 20px;
     margin-top: 40px;
-    color: #CCCCCC;
 }
-
-
-
-
-
