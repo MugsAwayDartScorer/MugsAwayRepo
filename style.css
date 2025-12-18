@@ -106,10 +106,10 @@ section {
    🔧 SINGLE, SURGICAL FIX
    ONLY affects the bottom screenshot
 ============================ */
-#screenshots .mode:last-child img {
-    width: 574px;    /* aligns with Menu image above */
-    height: auto;
-}
+/*#screenshots .mode:last-child img {
+   /* width: 574px;    /* aligns with Menu image above */
+   /* height: auto;
+/*}
 
 /* ============================
    REVIEWS
@@ -159,3 +159,4 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
