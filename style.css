@@ -103,16 +103,15 @@ section {
 }
 
 /* ============================
-   🔧 SURGICAL FIX
-   ONLY affects bottom screenshot
+   🔧 SURGICAL FIX FOR BOTTOM IMAGE
+   Enlarges from top-left without affecting others
 ============================ */
 .bottom-shot {
     display: block;
-    margin: 0;           /* keep top-left position */
-    transform-origin: top left; /* scale from top-left corner */
-    transform: scale(1.42);      /* increase size 140% */
+    margin: 0;                     /* keeps top-left corner in place */
+    transform-origin: top left;    /* scale from top-left corner */
+    transform: scale(1.42);        /* enlarge to match width of Menu1 screenshot */
 }
-
 
 /* ============================
    REVIEWS
@@ -162,6 +161,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-
-
