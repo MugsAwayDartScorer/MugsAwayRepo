@@ -45,7 +45,7 @@ body {
 
 /* 🔒 HARD LOCK HEADER IMAGES */
 .title-container img {
-    width: 200px;
+    width: 175px;
     height: auto;
     display: block;
     flex-shrink: 0;
@@ -174,5 +174,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
 
 
