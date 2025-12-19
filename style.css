@@ -178,7 +178,7 @@ footer {
     .bottom-shot {
         width: 100%;
         max-width: 905px;
-        height: auto;
+        height: 137;
         left: 0;          /* remove desktop offset */
         margin: 0;        /* no centering */
     }
@@ -187,6 +187,7 @@ footer {
         text-align: left; /* keep left aligned */
     }
 }
+
 
 
 
