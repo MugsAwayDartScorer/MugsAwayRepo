@@ -176,17 +176,19 @@ footer {
 }
 @media (max-width: 768px) {
     .bottom-shot {
-        width: 100%;
-        max-width: 905px;
-        height: 137;
-        left: 0;          /* remove desktop offset */
-        margin: 0;        /* no centering */
+        width: auto;        /* use natural image size */
+        max-width: none;    /* do NOT scale down */
+        height: auto;
+        left: 0;            /* remove desktop offset */
+        margin: 0;
     }
 
     #screenshots .mode:last-child {
-        text-align: left; /* keep left aligned */
+        text-align: left;   /* keep left aligned */
     }
 }
+
+
 
 
 
