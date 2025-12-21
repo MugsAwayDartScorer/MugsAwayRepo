@@ -39,8 +39,17 @@ body {
 }
 
 .title-img {
+    width: 75px;
+    height: auto;
+}
+
+/* 🔒 HARD LOCK HEADER IMAGES (ORIGINAL) */
+.title-container img {
     width: 175px;
     height: auto;
+    display: block;
+    flex-shrink: 0;
+    max-width: none;
 }
 
 /* ============================
@@ -61,7 +70,8 @@ body {
     gap: 10px;
 }
 
-button {
+#downloadBtn,
+#donateBtn {
     background-color: #4CAF50;
     color: white;
     padding: 15px 30px;
@@ -71,7 +81,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#downloadBtn:hover,
+#donateBtn:hover {
     background-color: #45a049;
 }
 
@@ -87,7 +98,7 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (ROLLBACK)
+   SCREENSHOTS (ORIGINAL DESKTOP)
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
@@ -99,12 +110,20 @@ section {
     height: auto;
 }
 
-/* Only fix the last image on phones */
-@media (max-width: 600px) {
-    .bottom-shot {
-        width: 100%;
-        height: auto;
-    }
+/* ============================
+   BOTTOM IMAGE (ORIGINAL DESKTOP)
+============================ */
+.bottom-shot {
+    display: block;
+    width: 905px;
+    height: 137px;
+    position: relative;
+    left: 168px;
+    top: 0;
+}
+
+#screenshots .mode:last-child {
+    text-align: left;
 }
 
 /* ============================
@@ -154,4 +173,27 @@ footer {
     background-color: #1E272C;
     padding: 20px;
     margin-top: 40px;
+}
+
+/* ============================
+   MOBILE FIXES ONLY (FINAL)
+   Does NOT affect desktop
+============================ */
+@media (max-width: 600px) {
+
+    /* All screenshots: full width, natural ratio */
+    #screenshots .mode img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* Reset desktop positioning on last image */
+    .bottom-shot {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
 }
