@@ -1,12 +1,20 @@
-import { db } from "./firebase-init.js";
-import { doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-(async () => {
-    try {
-        const ref = doc(db, "stats", "main", "pageViews");
-        await updateDoc(ref, { count: increment(1) });
-        console.log("Page view recorded");
-    } catch (err) {
-        console.error("Pageview error:", err);
-    }
-})();
+import { analytics } from "./firebase-init.js";
+import { logEvent } from "firebase/analytics";
+
+const downloadBtn = document.getElementById("downloadBtn");
+
+if (downloadBtn) {
+    downloadBtn.addEventListener("click", () => {
+
+        logEvent(analytics, "download", {
+            file_name: "Mugs Away Windows.zip",
+            platform: "windows"
+        });
+
+        // Give Firebase time, THEN download
+        setTimeout(() => {
+            window.location.href = "assets/Mugs Away Windows.zip";
+        }, 300);
+    });
+}
