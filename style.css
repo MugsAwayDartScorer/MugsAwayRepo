@@ -1,52 +1,38 @@
 /* ============================
-   SCREENSHOTS (SCOPED)
+   SCREENSHOTS (STABLE VERSION)
 ============================ */
+
+/* Container */
 #screenshots .mode {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center; /* center screenshots on desktop */
+    margin: 20px auto;
+    text-align: center;      /* center on desktop */
 }
 
-#screenshots .mode img {
-    height: auto;
-    width: 100%;          /* responsive width */
-    max-width: 574px;     /* cap for desktop */
-}
-
-/* Last image (bottom-shot) */
-.bottom-shot {
+/* All screenshots */
+#screenshots img {
     display: block;
+    width: 100%;
+    max-width: 574px;        /* desktop size cap */
+    height: auto;
+    margin: 0 auto;          /* center image */
+}
+
+/* Last wide screenshot */
+.bottom-shot {
     width: 100%;
     max-width: 574px;
     height: auto;
-    margin: 0; /* no extra spacing */
-}
-
-/* Wide shots class */
-.wide-shot {
-    width: 100%;
-    max-width: 574px;      /* desktop cap */
-    height: auto;
+    margin: 0 auto;
 }
 
 /* ============================
-   MEDIA QUERIES
+   MOBILE FIXES
 ============================ */
-@media (max-width: 768px) {
-    #screenshots .mode,
-    #screenshots .mode img,
-    .bottom-shot,
-    .wide-shot {
-        justify-content: flex-start; /* align left on small screens */
-        width: 100%;                 /* fill width */
-        max-width: 100%;             /* remove desktop cap */
-        height: auto;
-    }
-}
-
 @media (max-width: 600px) {
-    .wide-shot {
-        width: 100vw;       /* fill phone width */
-        max-width: none;
+
+    #screenshots img,
+    .bottom-shot {
+        max-width: 100%;     /* fill phone width */
+        margin: 0 auto;
     }
 }
