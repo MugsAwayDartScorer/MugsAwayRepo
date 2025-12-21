@@ -167,7 +167,6 @@ footer {
    MOBILE TWEAKS
 ============================ */
 @media (max-width: 600px) {
-
     .title-container {
         flex-direction: column;
         gap: 10px;
@@ -210,7 +209,11 @@ footer {
 
 <section id="download-donate">
     <div class="btn-container">
-        <a href="assets/Mugs Away Windows.zip" download>
+
+        <!-- DOWNLOAD (TRACKED) -->
+        <a href="assets/Mugs Away Windows.zip"
+           download
+           id="downloadLink">
             <button>Download Windows App Free! (Zip file)</button>
         </a>
 
@@ -220,9 +223,13 @@ footer {
             Play Darts!
         </p>
 
-        <a href="https://buymeacoffee.com/mugsaway" target="_blank">
+        <!-- DONATE -->
+        <a href="https://buymeacoffee.com/mugsaway"
+           target="_blank"
+           id="donateLink">
             <button>Buy Me a Beer!</button>
         </a>
+
     </div>
 </section>
 
@@ -262,8 +269,8 @@ footer {
 
     <form id="reviewForm" class="form-section">
         <h3>Submit Your Review</h3>
-        <input type="text" placeholder="Your Name" required>
-        <select required>
+        <input id="name" type="text" placeholder="Your Name" required>
+        <select id="rating" required>
             <option value="">Rating</option>
             <option value="1">★</option>
             <option value="2">★★</option>
@@ -271,15 +278,15 @@ footer {
             <option value="4">★★★★</option>
             <option value="5">★★★★★</option>
         </select>
-        <textarea rows="3" placeholder="Your review" required></textarea>
+        <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
         <button type="submit">Submit Review</button>
     </form>
 </section>
 
 <section id="subscribe">
     <h2>Get Android Release Updates</h2>
-    <form class="form-section">
-        <input type="email" placeholder="Enter your email" required>
+    <form id="subscribeForm" class="form-section">
+        <input id="email" type="email" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
     </form>
 </section>
@@ -288,13 +295,15 @@ footer {
     <p>© 2025 Colin Prout</p>
     <p><em>Android version coming soon!</em></p>
 </footer>
-    
+
+<!-- ============================
+     FIREBASE + TRACKING SCRIPTS
+============================ -->
 <script type="module" src="js/firebase-init.js"></script>
 <script type="module" src="js/reviews.js"></script>
 <script type="module" src="js/downloads.js"></script>
 <script type="module" src="js/pageviews.js"></script>
 <script type="module" src="js/subscribe.js"></script>
+
 </body>
 </html>
-
-
