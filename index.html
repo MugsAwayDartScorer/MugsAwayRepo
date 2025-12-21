@@ -4,202 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mugs Away Dart Scoring App</title>
-
-    <style>
-/* ============================
-   GLOBAL STYLES
-============================ */
-body {
-    background-color: #263238;
-    color: #CCCCCC;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-/* ============================
-   HEADER / TITLE
-============================ */
-.title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.title-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.title-text h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #FFFFFF;
-}
-
-.title-text h2 {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.title-container img {
-    width: 175px;
-    height: auto;
-    flex-shrink: 0;
-}
-
-/* ============================
-   INTRO
-============================ */
-.intro p {
-    margin: 0;
-    padding: 4px 0;
-}
-
-/* ============================
-   DOWNLOAD / DONATE
-============================ */
-#download-donate .btn-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 320px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.instructions {
-    margin: 0;
-}
-
-/* ============================
-   SECTIONS
-============================ */
-section {
-    padding: 40px 20px;
-}
-
-/* ============================
-   SCREENSHOTS
-============================ */
-#screenshots .mode {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 25px auto;
-}
-
-#screenshots img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ============================
-   REVIEWS
-============================ */
-#reviewsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.review {
-    max-width: 600px;
-    width: 100%;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #39464E;
-}
-
-/* ============================
-   FORMS
-============================ */
-.form-section {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-}
-
-textarea {
-    resize: none;
-}
-
-/* ============================
-   FOOTER
-============================ */
-footer {
-    background-color: #1E272C;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-/* ============================
-   MOBILE TWEAKS
-============================ */
-@media (max-width: 600px) {
-    .title-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .title-container img {
-        width: 100px;
-    }
-
-    .title-text h1 {
-        font-size: 2.2em;
-    }
-
-    .title-text h2 {
-        font-size: 1.2em;
-    }
-
-    section {
-        padding: 25px 15px;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="title-container">
-    <img src="assets/dartboardnormal.png" alt="">
+    <img src="assets/dartboardnormal.png" class="title-img" alt="">
     <div class="title-text">
         <h1>Mugs Away</h1>
         <h2>Dart Scoring App</h2>
     </div>
-    <img src="assets/dartboardnormal.png" alt="">
+    <img src="assets/dartboardnormal.png" class="title-img" alt="">
 </header>
 
 <section class="intro">
@@ -209,11 +25,9 @@ footer {
 
 <section id="download-donate">
     <div class="btn-container">
-
-        <!-- DOWNLOAD (TRACKED & RELIABLE) -->
-        <button id="downloadBtn">
-            Download Windows App Free! (Zip file)
-        </button>
+        <a href="assets/Mugs Away Windows.zip" download>
+            <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
+        </a>
 
         <p class="instructions">
             Unzip to a folder of your choice<br>
@@ -221,39 +35,44 @@ footer {
             Play Darts!
         </p>
 
-        <!-- DONATE -->
         <a href="https://buymeacoffee.com/mugsaway" target="_blank">
-            <button>Buy Me a Beer!</button>
+            <button id="donateBtn">Buy Me a Beer!</button>
         </a>
-
     </div>
 </section>
 
 <section id="screenshots">
     <p>Screenshots from Android version (Coming Soon)</p>
 
-    <div class="mode"><img src="assets/Default Screen.jpg" alt=""></div>
-    <div class="mode"><img src="assets/Stats Page.jpg" alt=""></div>
+    <div class="mode">
+        <img src="assets/Default Screen.jpg" class="wide-shot" alt="">
+    </div>
+
+    <div class="mode">
+        <img src="assets/Stats Page.jpg" class="wide-shot" alt="">
+    </div>
 
     <div class="mode">
         <h3>Handicap Mode</h3>
-        <img src="assets/Handicap Mode.jpg" alt="">
+        <img src="assets/Handicap Mode.jpg" class="wide-shot" alt="">
     </div>
 
     <div class="mode">
         <h3>Menu</h3>
-        <img src="assets/Menu1.jpg" alt="">
+        <img src="assets/Menu1.jpg" class="wide-shot" alt="">
     </div>
 
-    <div class="mode"><img src="assets/Menu 2.jpg" alt=""></div>
     <div class="mode">
-    <img src="assets/About Instrutions.jpg" class="wide-shot" alt="">
-</div>
+        <img src="assets/Menu 2.jpg" class="wide-shot" alt="">
+    </div>
 
+    <div class="mode">
+        <img src="assets/About Instrutions.jpg" class="wide-shot bottom-shot" alt="">
+    </div>
 </section>
 
 <section id="reviews">
-    <h2>User Reviews</h2>
+    <h2 class="section-title">User Reviews</h2>
     <div id="reviewsContainer"></div>
 
     <form id="reviewForm" class="form-section">
@@ -273,7 +92,7 @@ footer {
 </section>
 
 <section id="subscribe">
-    <h2>Get Android Release Updates</h2>
+    <h2 class="section-title">Get Android Release Updates</h2>
     <form id="subscribeForm" class="form-section">
         <input id="email" type="email" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
@@ -285,9 +104,6 @@ footer {
     <p><em>Android version coming soon!</em></p>
 </footer>
 
-<!-- ============================
-     FIREBASE + TRACKING SCRIPTS
-============================ -->
 <script type="module" src="js/firebase-init.js"></script>
 <script type="module" src="js/reviews.js"></script>
 <script type="module" src="js/downloads.js"></script>
@@ -296,4 +112,3 @@ footer {
 
 </body>
 </html>
-
