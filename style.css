@@ -101,29 +101,24 @@ section {
    SCREENSHOTS (SCOPED)
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;
+    margin: 20px 0;
+    text-align: left; /* left align by default */
 }
 
 #screenshots .mode img {
     display: block;
-    margin: 0 auto;
     height: auto;
+    width: 100%;       /* responsive width */
+    max-width: 574px;  /* max width for larger screens */
 }
 
-/* ============================
-   BOTTOM IMAGE FIX
-============================ */
+/* Last image (bottom-shot) aligned with above screenshots */
 .bottom-shot {
     display: block;
-    width: 905px;
-    height: 137px;
-    position: relative;
-    left: 168px;
-    top: 0;
-}
-
-#screenshots .mode:last-child {
-    text-align: left;
+    width: 100%;        /* responsive width */
+    max-width: 574px;   /* same max width as other images */
+    height: auto;
+    margin: 0;          /* remove centering */
 }
 
 /* ============================
@@ -174,23 +169,40 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* ============================
+   MEDIA QUERIES
+============================ */
 @media (max-width: 768px) {
     .bottom-shot {
-        width: auto;        /* use natural image size */
-        max-width: none;    /* do NOT scale down */
+        width: 100%;        /* fill container */
+        max-width: 100%;    /* no scaling limit */
         height: auto;
-        left: 0;            /* remove desktop offset */
         margin: 0;
     }
 
+    #screenshots .mode img {
+        width: 100%;       /* responsive width */
+        max-width: none;   /* allow full width */
+        height: auto;
+    }
+
     #screenshots .mode:last-child {
-        text-align: left;   /* keep left aligned */
+        text-align: left;  /* align with above images */
     }
 }
 
+/* ============================
+   WIDE SHOTS FOR SMALL SCREENS
+============================ */
+.wide-shot {
+    width: 100%;
+    max-width: 900px;
+}
 
-
-
-
-
-
+@media (max-width: 600px) {
+    .wide-shot {
+        width: 100vw;       /* fill phone width */
+        max-width: none;
+    }
+}
