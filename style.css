@@ -97,29 +97,6 @@ section {
     padding: 40px 20px;
 }
 
-/* ============================
-   SCREENSHOTS (SCOPED)
-============================ */
-#screenshots .mode {
-    margin: 20px 0;
-    text-align: left; /* left align by default */
-}
-
-#screenshots .mode img {
-    display: block;
-    height: auto;
-    width: 100%;       /* responsive width */
-    max-width: 574px;  /* max width for larger screens */
-}
-
-/* Last image (bottom-shot) aligned with above screenshots */
-.bottom-shot {
-    display: block;
-    width: 100%;        /* responsive width */
-    max-width: 574px;   /* same max width as other images */
-    height: auto;
-    margin: 0;          /* remove centering */
-}
 
 /* ============================
    REVIEWS
@@ -137,6 +114,55 @@ section {
     padding: 15px;
     border-radius: 5px;
     background-color: #39464E;
+}
+/* ============================
+   SCREENSHOTS (SCOPED)
+============================ */
+#screenshots .mode {
+    margin: 20px 0;
+    text-align: left; /* left align by default */
+}
+
+#screenshots .mode img {
+    display: block;
+    height: auto;
+    width: 100%;          /* responsive width */
+    max-width: 574px;     /* limit width on desktop */
+}
+
+.bottom-shot {
+    display: block;
+    width: 100%;           /* responsive width */
+    max-width: 574px;      /* same as above */
+    height: auto;
+    margin: 0;             /* left align */
+}
+
+/* Wide shots class */
+.wide-shot {
+    width: 100%;
+    max-width: 574px;      /* desktop cap */
+    height: auto;
+}
+
+/* ============================
+   MEDIA QUERIES
+============================ */
+@media (max-width: 768px) {
+    #screenshots .mode img,
+    .bottom-shot,
+    .wide-shot {
+        width: 100%;       /* fill container on smaller screens */
+        max-width: 100%;   /* allow full width */
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .wide-shot {
+        width: 100vw;       /* fill phone width */
+        max-width: none;
+    }
 }
 
 /* ============================
@@ -206,3 +232,4 @@ footer {
         max-width: none;
     }
 }
+
