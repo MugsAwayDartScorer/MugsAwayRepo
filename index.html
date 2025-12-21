@@ -106,7 +106,7 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (ORIGINAL)
+   SCREENSHOTS (ORIGINAL DESKTOP)
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
@@ -119,7 +119,7 @@ section {
 }
 
 /* ============================
-   BOTTOM IMAGE FIX (ORIGINAL)
+   BOTTOM IMAGE (DESKTOP)
 ============================ */
 .bottom-shot {
     display: block;
@@ -181,6 +181,27 @@ footer {
     background-color: #1E272C;
     padding: 20px;
     margin-top: 40px;
+}
+
+/* ============================
+   PHONE FIXES ONLY
+   (does NOT affect Windows)
+============================ */
+@media (max-width: 600px) {
+
+    /* Fix alignment of last image */
+    .bottom-shot {
+        width: 100%;
+        height: auto;
+        position: static;     /* remove desktop offset */
+        margin: 0 auto;
+    }
+
+    /* Tighten screenshots to reduce scrolling */
+    #screenshots .mode img {
+        max-width: 90%;
+        height: auto;
+    }
 }
     </style>
 </head>
