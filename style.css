@@ -1,38 +1,157 @@
 /* ============================
-   SCREENSHOTS (STABLE VERSION)
+   GLOBAL STYLES
 ============================ */
-
-/* Container */
-#screenshots .mode {
-    margin: 20px auto;
-    text-align: center;      /* center on desktop */
-}
-
-/* All screenshots */
-#screenshots img {
-    display: block;
-    width: 100%;
-    max-width: 574px;        /* desktop size cap */
-    height: auto;
-    margin: 0 auto;          /* center image */
-}
-
-/* Last wide screenshot */
-.bottom-shot {
-    width: 100%;
-    max-width: 574px;
-    height: auto;
-    margin: 0 auto;
+body {
+    background-color: #263238;
+    color: #CCCCCC;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 /* ============================
-   MOBILE FIXES
+   HEADER / TITLE
 ============================ */
-@media (max-width: 600px) {
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
 
-    #screenshots img,
+.title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-text h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.title-text h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.title-img {
+    width: 175px;
+    height: auto;
+}
+
+/* ============================
+   INTRO
+============================ */
+.intro p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* ============================
+   DOWNLOAD / DONATE
+============================ */
+#download-donate .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.instructions {
+    margin: 0;
+}
+
+/* ============================
+   SECTIONS
+============================ */
+section {
+    padding: 40px 20px;
+}
+
+/* ============================
+   SCREENSHOTS (ROLLBACK)
+============================ */
+#screenshots .mode {
+    margin: 20px auto;
+}
+
+#screenshots .mode img {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+}
+
+/* Only fix the last image on phones */
+@media (max-width: 600px) {
     .bottom-shot {
-        max-width: 100%;     /* fill phone width */
-        margin: 0 auto;
+        width: 100%;
+        height: auto;
     }
+}
+
+/* ============================
+   REVIEWS
+============================ */
+#reviewsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review {
+    max-width: 600px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #39464E;
+}
+
+/* ============================
+   FORMS
+============================ */
+.form-section {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+    background-color: #1E272C;
+    padding: 20px;
+    margin-top: 40px;
 }
