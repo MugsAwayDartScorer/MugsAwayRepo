@@ -174,7 +174,6 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
 /* ============================
    MOBILE FIXES ONLY
    (NO DESKTOP IMPACT)
@@ -189,23 +188,18 @@ footer {
         margin: 0;
     }
 
-
-@media (max-width: 600px) {
-
-    #screenshots .mode img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
-    }
-
+    /* Bottom image: override desktop hard-lock */
     .bottom-shot {
         position: static;
         width: 100%;
         max-width: 100%;
-        height: auto !important; /* 🔥 THIS IS THE KEY */
+        height: auto !important;
         margin: 0;
         display: block;
     }
 }
+
+
+
+
 
