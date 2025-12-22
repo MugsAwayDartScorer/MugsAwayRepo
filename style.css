@@ -168,3 +168,26 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+/* ============================
+   MOBILE FIX – ALIGN BOTTOM IMAGE
+============================ */
+@media (max-width: 600px) {
+
+    /* All screenshots keep their current behavior */
+    #screenshots .mode img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Bottom image: same size, LEFT aligned */
+    .bottom-shot {
+        position: static;      /* kill desktop offset */
+        width: 100%;
+        height: auto;
+        margin-left: 0;        /* force left alignment */
+        margin-right: auto;    /* prevents centering */
+        display: block;
+    }
+}
+
+
