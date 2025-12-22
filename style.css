@@ -1,27 +1,7 @@
-html {
-    background-color: #263238 !important;
-    height: 100%;
-}
-
-body {
-    background-color: #263238 !important;
-    min-height: 100vh;
-    margin: 0;
-}
-/* ============================
-   GLOBAL STYLES
-============================ */
-body {
-    background-color: #263238;
-    color: #CCCCCC;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 html, body {
-    background-color: #263238; /* same as Windows */
+    background-color: #263238;
     min-height: 100%;
+    margin: 0;
 }
 
 /* ============================
@@ -203,6 +183,7 @@ body {
         display: block;
     }
 }
+
 
 
 
