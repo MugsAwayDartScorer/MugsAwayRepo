@@ -99,27 +99,28 @@ section {
 
 /* ============================
    SCREENSHOTS (DESKTOP)
+   Leave everything else untouched
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;
-    text-align: left; /* aligns screenshots to left within the section */
+    margin: 20px auto;   /* keep existing screenshot placement */
 }
 
 #screenshots .mode img {
     display: block;
+    margin: 0 auto;
     height: auto;
 }
 
 /* ============================
    BOTTOM IMAGE (DESKTOP)
-   Aligns with the screenshot above
+   Only this moves to align with above screenshot
 ============================ */
 .bottom-shot {
     display: block;
-    width: 905px;      /* correct size for Windows */
+    width: 905px;       /* correct Windows size */
     height: 137px;
     position: relative;
-    left: 168px;       /* aligns horizontally with previous image */
+    left: 168px;        /* aligns bottom image with previous screenshot */
     top: 0;
 }
 
