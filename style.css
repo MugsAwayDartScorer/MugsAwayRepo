@@ -99,27 +99,27 @@ section {
 
 /* ============================
    SCREENSHOTS (DESKTOP)
-   All screenshots centered
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;
-    text-align: center; /* center all screenshots */
+    margin: 20px auto; /* original screenshot placement */
 }
 
 #screenshots .mode img {
     display: block;
-    margin: 0 auto; /* centers each screenshot */
     height: auto;
 }
 
-/* Bottom image (desktop)
-   Centered like the others */
+/* ============================
+   BOTTOM IMAGE (DESKTOP)
+   Aligns with the screenshot above
+============================ */
 .bottom-shot {
     display: block;
     width: 905px;       /* correct Windows size */
     height: 137px;
-    margin: 0 auto;     /* center the bottom image */
-    position: static;   /* remove previous left offset */
+    position: relative;
+    left: 168px;        /* aligns horizontally with previous image */
+    top: 0;
 }
 
 /* ============================
@@ -169,4 +169,30 @@ footer {
     background-color: #1E272C;
     padding: 20px;
     margin-top: 40px;
+}
+
+/* ============================
+   MOBILE FIXES ONLY
+   (Does NOT affect Windows)
+============================ */
+@media (max-width: 600px) {
+
+    /* All screenshots full-width, left-aligned */
+    #screenshots .mode img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    /* Bottom image: fill width, left-aligned */
+    .bottom-shot {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        display: block;
+        left: 0; /* override desktop left offset */
+    }
 }
