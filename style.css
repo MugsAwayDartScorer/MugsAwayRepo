@@ -176,11 +176,11 @@ footer {
 }
 /* ============================
    MOBILE FIXES ONLY
-   (NO DESKTOP IMPACT)
+   (DESKTOP SAFE)
 ============================ */
 @media (max-width: 600px) {
 
-    /* All screenshots full-width */
+    /* All screenshots full width */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -188,18 +188,16 @@ footer {
         margin: 0;
     }
 
-    /* Bottom image: override desktop hard-lock */
+    /* Bottom image: undo desktop lock AND visually match others */
     .bottom-shot {
         position: static;
         width: 100%;
+        height: auto !important;   /* override 137px */
         max-width: 100%;
-        height: auto !important;
         margin: 0;
-        display: block;
+        transform: scaleY(1.6);    /* 🔑 visual height match */
+        transform-origin: top;
     }
 }
-
-
-
 
 
