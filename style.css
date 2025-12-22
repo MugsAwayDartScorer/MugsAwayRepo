@@ -1,3 +1,13 @@
+html {
+    background-color: #263238 !important;
+    height: 100%;
+}
+
+body {
+    background-color: #263238 !important;
+    min-height: 100vh;
+    margin: 0;
+}
 /* ============================
    GLOBAL STYLES
 ============================ */
@@ -193,6 +203,7 @@ body {
         display: block;
     }
 }
+
 
 
 
