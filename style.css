@@ -9,6 +9,10 @@ body {
     padding: 0;
     text-align: center;
 }
+html, body {
+    background-color: #263238; /* same as Windows */
+    min-height: 100%;
+}
 
 /* ============================
    HEADER / TITLE
@@ -172,6 +176,9 @@ footer {
 /* ============================
    MOBILE FIX – FORCE BOTTOM IMAGE SIZE
 ============================ */
+body {
+    min-height: 100vh;
+}
 @media (max-width: 600px) {
 
     .bottom-shot {
@@ -186,6 +193,7 @@ footer {
         display: block;
     }
 }
+
 
 
 
