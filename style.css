@@ -97,27 +97,26 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP)
+   SCREENSHOTS
 ============================ */
-.screenshot-wrapper {
-    width: 574px;       /* width of the widest screenshot above bottom image */
-    margin: 0 auto;     /* center wrapper on Windows */
+#screenshots .mode {
+    margin: 20px auto;  /* keeps original spacing */
 }
 
-.screenshot-wrapper .mode img {
+#screenshots .mode img {
     display: block;
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
+    height: auto;       /* keep original width in HTML */
 }
 
-/* Bottom image aligns with the screenshot above */
+/* Bottom image (desktop)
+   Aligns with the screenshot above */
 .bottom-shot {
     display: block;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    position: static;
+    width: 905px;       /* correct desktop size */
+    height: 137px;
+    position: relative;
+    left: 168px;        /* aligns perfectly with image above */
+    top: 0;
 }
 
 /* ============================
@@ -173,16 +172,14 @@ footer {
    MOBILE FIXES ONLY
 ============================ */
 @media (max-width: 600px) {
-    .screenshot-wrapper {
-        width: 100%;       /* full width on phone */
-        margin: 0;         /* remove centering */
-    }
 
-    .screenshot-wrapper .mode img,
+    #screenshots .mode img,
     .bottom-shot {
-        width: 100%;
+        width: 100%;       /* fill phone width */
         max-width: 100%;
         height: auto;
         margin: 0;
+        position: static;
+        left: 0;
     }
 }
