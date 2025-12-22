@@ -98,11 +98,11 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS DESKTOP
+   SCREENSHOTS (DESKTOP)
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
-    text-align: left; /* align screenshots to left for desktop */
+    text-align: left; /* aligns screenshots to left within the section */
 }
 
 #screenshots .mode img {
@@ -110,13 +110,16 @@ section {
     height: auto;
 }
 
-/* Bottom image (desktop) */
+/* ============================
+   BOTTOM IMAGE (DESKTOP)
+   Aligns with the screenshot above
+============================ */
 .bottom-shot {
     display: block;
-    width: 905px;
+    width: 905px;      /* correct size for Windows */
     height: 137px;
     position: relative;
-    left: 168px; /* aligns with the previous screenshot */
+    left: 168px;       /* aligns horizontally with previous image */
     top: 0;
 }
 
@@ -167,29 +170,4 @@ footer {
     background-color: #1E272C;
     padding: 20px;
     margin-top: 40px;
-}
-
-/* ============================
-   MOBILE FIXES ONLY
-============================ */
-@media (max-width: 600px) {
-
-    /* All screenshots full-width on mobile */
-    #screenshots .mode img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0; /* left-aligned for mobile */
-    }
-
-    /* Bottom image: full width + left-aligned for mobile */
-    .bottom-shot {
-        position: static;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
-        display: block;
-        left: 0; /* override desktop left */
-    }
 }
