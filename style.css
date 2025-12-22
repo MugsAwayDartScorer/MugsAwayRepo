@@ -105,18 +105,22 @@ section {
 
 #screenshots .mode img {
     display: block;
-    height: auto;       /* keep original width in HTML */
+    height: auto;       /* original width is set in HTML */
 }
 
-/* Bottom image (desktop)
-   Aligns with the screenshot above */
+/* Bottom image wrapper to align with screenshot above */
+.bottom-wrapper {
+    width: 574px;       /* match the width of the screenshot above it */
+    margin: 0 auto;     /* center on Windows */
+}
+
+/* Bottom image fills the wrapper */
 .bottom-shot {
     display: block;
-    width: 905px;       /* correct desktop size */
-    height: 137px;
-    position: relative;
-    left: 168px;        /* aligns perfectly with image above */
-    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    position: static;
 }
 
 /* ============================
@@ -174,12 +178,12 @@ footer {
 @media (max-width: 600px) {
 
     #screenshots .mode img,
+    .bottom-wrapper,
     .bottom-shot {
         width: 100%;       /* fill phone width */
         max-width: 100%;
         height: auto;
         margin: 0;
         position: static;
-        left: 0;
     }
 }
