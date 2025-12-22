@@ -43,7 +43,6 @@ body {
     height: auto;
 }
 
-/* HARD LOCK HEADER IMAGES */
 .title-container img {
     width: 175px;
     height: auto;
@@ -100,26 +99,25 @@ section {
 /* ============================
    SCREENSHOTS (DESKTOP)
 ============================ */
-#screenshots .mode {
-    margin: 20px auto; /* original screenshot placement */
+.screenshot-wrapper {
+    width: 574px;       /* width of the widest screenshot above bottom image */
+    margin: 0 auto;     /* center wrapper on Windows */
 }
 
-#screenshots .mode img {
+.screenshot-wrapper .mode img {
     display: block;
+    width: 100%;
     height: auto;
+    margin: 10px 0;
 }
 
-/* ============================
-   BOTTOM IMAGE (DESKTOP)
-   Aligns with the screenshot above
-============================ */
+/* Bottom image aligns with the screenshot above */
 .bottom-shot {
     display: block;
-    width: 905px;       /* correct Windows size */
-    height: 137px;
-    position: relative;
-    left: 168px;        /* aligns horizontally with previous image */
-    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    position: static;
 }
 
 /* ============================
@@ -173,26 +171,18 @@ footer {
 
 /* ============================
    MOBILE FIXES ONLY
-   (Does NOT affect Windows)
 ============================ */
 @media (max-width: 600px) {
-
-    /* All screenshots full-width, left-aligned */
-    #screenshots .mode img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
+    .screenshot-wrapper {
+        width: 100%;       /* full width on phone */
+        margin: 0;         /* remove centering */
     }
 
-    /* Bottom image: fill width, left-aligned */
+    .screenshot-wrapper .mode img,
     .bottom-shot {
-        position: static;
         width: 100%;
         max-width: 100%;
         height: auto;
         margin: 0;
-        display: block;
-        left: 0; /* override desktop left offset */
     }
 }
