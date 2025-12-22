@@ -4,206 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mugs Away Dart Scoring App</title>
-
-    <style>
-/* ============================
-   GLOBAL STYLES
-============================ */
-body {
-    background-color: #263238;
-    color: #CCCCCC;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-/* ============================
-   HEADER / TITLE
-============================ */
-.title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.title-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.title-text h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #FFFFFF;
-}
-
-.title-text h2 {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.title-img {
-    width: 75px;
-    height: auto;
-}
-
-/* 🔒 HARD LOCK HEADER IMAGES */
-.title-container img {
-    width: 175px;
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-    max-width: none;
-}
-
-/* ============================
-   INTRO
-============================ */
-.intro p {
-    margin: 0;
-    padding: 2px 0;
-}
-
-/* ============================
-   DOWNLOAD / DONATE
-============================ */
-#download-donate .btn-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-#downloadBtn,
-#donateBtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#downloadBtn:hover,
-#donateBtn:hover {
-    background-color: #45a049;
-}
-
-.instructions {
-    margin: 0;
-}
-
-/* ============================
-   SECTIONS
-============================ */
-section {
-    padding: 40px 20px;
-}
-
-/* ============================
-   SCREENSHOTS (ORIGINAL DESKTOP)
-============================ */
-#screenshots .mode {
-    margin: 20px auto;
-}
-
-#screenshots .mode img {
-    display: block;
-    margin: 0 auto;
-    height: auto;
-}
-
-/* ============================
-   BOTTOM IMAGE (DESKTOP)
-============================ */
-.bottom-shot {
-    display: block;
-    width: 905px;
-    height: 137px;
-    position: relative;
-    left: 168px;
-    top: 0;
-}
-
-#screenshots .mode:last-child {
-    text-align: left;
-}
-
-/* ============================
-   REVIEWS
-============================ */
-#reviewsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.review {
-    max-width: 600px;
-    width: 100%;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #39464E;
-}
-
-/* ============================
-   FORMS
-============================ */
-.form-section {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-}
-
-textarea {
-    resize: none;
-}
-
-/* ============================
-   FOOTER
-============================ */
-footer {
-    background-color: #1E272C;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-/* ============================
-   PHONE FIXES ONLY
-   (does NOT affect Windows)
-============================ */
-@media (max-width: 600px) {
-
-    /* Fix alignment of last image */
-    .bottom-shot {
-        width: 100%;
-        height: auto;
-        position: static;     /* remove desktop offset */
-        margin: 0 auto;
-    }
-
-    /* Tighten screenshots to reduce scrolling */
-    #screenshots .mode img {
-        max-width: 90%;
-        height: auto;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -270,9 +71,41 @@ footer {
     </div>
 </section>
 
+<!-- ============================
+     REVIEWS (RESTORED)
+============================ -->
 <section id="reviews">
     <h2>User Reviews</h2>
     <div id="reviewsContainer"></div>
+
+    <form id="reviewForm" class="form-section">
+        <h3>Submit Your Review</h3>
+        <input id="name" type="text" placeholder="Your Name" required>
+
+        <select id="rating" required>
+            <option value="">Rating</option>
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+        </select>
+
+        <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+</section>
+
+<!-- ============================
+     SUBSCRIBE (RESTORED)
+============================ -->
+<section id="subscribe">
+    <h2>Get Android Release Updates</h2>
+
+    <form id="subscribeForm" class="form-section">
+        <input id="email" type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
 </section>
 
 <footer>
@@ -280,6 +113,9 @@ footer {
     <p><em>Android version coming soon!</em></p>
 </footer>
 
+<!-- ============================
+     FIREBASE / JS
+============================ -->
 <script type="module" src="js/firebase-init.js"></script>
 <script type="module" src="js/reviews.js"></script>
 <script type="module" src="js/downloads.js"></script>
