@@ -189,13 +189,23 @@ footer {
         margin: 0;
     }
 
-    /* Last image: same width, LEFT aligned */
-    .bottom-shot {
-        position: static;
+
+@media (max-width: 600px) {
+
+    #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
         margin: 0;
+    }
+
+    .bottom-shot {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        height: auto !important; /* 🔥 THIS IS THE KEY */
+        margin: 0;
         display: block;
     }
 }
+
