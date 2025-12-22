@@ -97,29 +97,24 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP)
+   SCREENSHOTS
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;    /* spacing between screenshots */
+    margin: 20px auto;
+    text-align: center;       /* center images inside */
 }
 
 #screenshots .mode img {
-    display: block;
-    margin: 0 auto;       /* center screenshots */
-    height: auto;         /* width controlled in HTML */
+    display: inline-block;
+    height: auto;
 }
 
-/* ============================
-   BOTTOM IMAGE (WINDOWS PERFECT)
-============================ */
+/* Bottom image aligned with screenshots above */
 .bottom-shot {
-    display: block;
-    width: 905px;         /* desktop width */
-    height: 137px;
-    position: relative;
-    left: 168px;          /* aligns with screenshot above */
-    top: 0;
-    margin: 0;
+    width: 574px;             /* same width as screenshots above */
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;           /* centers it */
 }
 
 /* ============================
