@@ -169,25 +169,28 @@ footer {
     margin-top: 40px;
 }
 /* ============================
-   MOBILE FIX – ALIGN BOTTOM IMAGE
+   MOBILE FIX – BOTTOM IMAGE SIZE
 ============================ */
 @media (max-width: 600px) {
 
-    /* All screenshots keep their current behavior */
+    /* All screenshots behave as before */
     #screenshots .mode img {
         width: 100%;
         height: auto;
     }
 
-    /* Bottom image: same size, LEFT aligned */
+    /* Bottom image: same alignment, BIGGER */
     .bottom-shot {
-        position: static;      /* kill desktop offset */
-        width: 100%;
+        position: static;      /* no desktop offset */
+        width: 100vw;          /* 🔥 make it as wide as the phone */
+        max-width: 100vw;
         height: auto;
-        margin-left: 0;        /* force left alignment */
-        margin-right: auto;    /* prevents centering */
+        margin-left: 0;        /* keep left aligned */
+        margin-right: 0;
         display: block;
     }
 }
+
+
 
 
