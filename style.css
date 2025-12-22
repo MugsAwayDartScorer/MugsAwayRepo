@@ -190,6 +190,25 @@ footer {
         display: block;
     }
 }
+/* ============================
+   MOBILE FIX – FORCE BOTTOM IMAGE SIZE
+============================ */
+@media (max-width: 600px) {
+
+    .bottom-shot {
+        position: static !important;   /* remove desktop offset */
+        width: auto !important;        /* ignore previous width rules */
+        min-width: 100vw !important;   /* 🔥 force full phone width */
+        max-width: none !important;    /* remove any caps */
+        height: auto !important;
+
+        margin-left: 0 !important;     /* left aligned */
+        margin-right: 0 !important;
+        display: block;
+    }
+}
+
+
 
 
 
