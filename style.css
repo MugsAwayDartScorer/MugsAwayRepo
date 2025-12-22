@@ -100,22 +100,24 @@ section {
    SCREENSHOTS (DESKTOP)
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;   /* spacing */
+    margin: 20px auto;    /* spacing between screenshots */
 }
 
 #screenshots .mode img {
     display: block;
-    margin: 0 auto;      /* screenshots centered */
-    height: auto;        /* widths set in HTML */
+    margin: 0 auto;       /* center screenshots */
+    height: auto;         /* width controlled in HTML */
 }
 
-/* Bottom image (Windows-perfect alignment) */
+/* ============================
+   BOTTOM IMAGE (WINDOWS PERFECT)
+============================ */
 .bottom-shot {
     display: block;
-    width: 905px;        /* desktop width */
+    width: 905px;         /* desktop width */
     height: 137px;
     position: relative;
-    left: 168px;         /* aligns with image above */
+    left: 168px;          /* aligns with screenshot above */
     top: 0;
     margin: 0;
 }
