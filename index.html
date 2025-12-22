@@ -6,7 +6,6 @@
     <title>Mugs Away Dart Scoring App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="title-container">
@@ -28,13 +27,11 @@
         <a href="assets/Mugs Away Windows.zip" download>
             <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
         </a>
-
         <p class="instructions">
             Unzip to a folder of your choice<br>
             Run the Mugs Away Windows.exe<br>
             Play Darts!
         </p>
-
         <a href="https://buymeacoffee.com/mugsaway" target="_blank">
             <button id="donateBtn">Buy Me a Beer!</button>
         </a>
@@ -44,43 +41,38 @@
 <section id="screenshots">
     <p>Screenshots from Android version (Coming Soon)</p>
 
-    <div class="mode">
-        <img src="assets/Default Screen.jpg" style="width:450px;height:999px;" alt="">
+    <!-- Desktop wrapper to align screenshots and bottom image -->
+    <div class="screenshot-wrapper">
+        <div class="mode">
+            <img src="assets/Default Screen.jpg" alt="">
+        </div>
+        <div class="mode">
+            <img src="assets/Stats Page.jpg" alt="">
+        </div>
+        <div class="mode">
+            <h3>Handicap Mode</h3>
+            <img src="assets/Handicap Mode.jpg" alt="">
+        </div>
+        <div class="mode">
+            <h3>Menu</h3>
+            <img src="assets/Menu1.jpg" alt="">
+        </div>
+        <div class="mode">
+            <img src="assets/Menu 2.jpg" alt="">
+        </div>
+        <div class="mode">
+            <img src="assets/About Instructions.jpg" class="bottom-shot" alt="">
+        </div>
     </div>
+</section>
 
-    <div class="mode">
-        <img src="assets/Stats Page.jpg" style="width:450px;height:999px;" alt="">
-    </div>
-
-    <div class="mode">
-        <h3>Handicap Mode</h3>
-        <img src="assets/Handicap Mode.jpg" style="width:450px;height:999px;" alt="">
-    </div>
-
-    <div class="mode">
-        <h3>Menu</h3>
-        <img src="assets/Menu1.jpg" style="width:574px;height:634px;" alt="">
-    </div>
-
-    <div class="mode">
-        <img src="assets/Menu 2.jpg" style="width:574px;height:533px;" alt="">
-    </div>
-    <img src="assets/About Instrutions.jpg" class="bottom-shot" alt="">
-    </div>
-    </section>
-
-
-<!-- ============================
-     REVIEWS (RESTORED)
-============================ -->
 <section id="reviews">
-    <h2>User Reviews</h2>
+    <h2 class="section-title">User Reviews</h2>
     <div id="reviewsContainer"></div>
 
     <form id="reviewForm" class="form-section">
         <h3>Submit Your Review</h3>
         <input id="name" type="text" placeholder="Your Name" required>
-
         <select id="rating" required>
             <option value="">Rating</option>
             <option value="1">★</option>
@@ -89,18 +81,13 @@
             <option value="4">★★★★</option>
             <option value="5">★★★★★</option>
         </select>
-
         <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
         <button type="submit">Submit Review</button>
     </form>
 </section>
 
-<!-- ============================
-     SUBSCRIBE (RESTORED)
-============================ -->
 <section id="subscribe">
-    <h2>Get Android Release Updates</h2>
-
+    <h2 class="section-title">Get Android Release Updates</h2>
     <form id="subscribeForm" class="form-section">
         <input id="email" type="email" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
@@ -112,9 +99,6 @@
     <p><em>Android version coming soon!</em></p>
 </footer>
 
-<!-- ============================
-     FIREBASE / JS
-============================ -->
 <script type="module" src="js/firebase-init.js"></script>
 <script type="module" src="js/reviews.js"></script>
 <script type="module" src="js/downloads.js"></script>
@@ -123,6 +107,3 @@
 
 </body>
 </html>
-
-
-
