@@ -101,7 +101,7 @@ section {
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
-    text-align: center;       /* center images inside */
+    text-align: center;  /* center images inside */
 }
 
 #screenshots .mode img {
@@ -109,12 +109,15 @@ section {
     height: auto;
 }
 
-/* Bottom image aligned with screenshots above */
+/* Bottom image aligned with screenshots above, full size */
 .bottom-shot {
-    width: 574px;             /* same width as screenshots above */
-    height: auto;
-    display: inline-block;
-    margin: 0 auto;           /* centers it */
+    display: block;
+    width: 905px;        /* full desktop width */
+    height: 137px;
+    position: relative;
+    left: 168px;         /* aligns perfectly with image above */
+    top: 0;
+    margin: 0;
 }
 
 /* ============================
