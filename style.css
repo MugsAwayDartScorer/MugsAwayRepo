@@ -43,7 +43,7 @@ body {
     height: auto;
 }
 
-/* 🔒 HARD LOCK HEADER IMAGES (ORIGINAL) */
+/* HARD LOCK HEADER IMAGES */
 .title-container img {
     width: 175px;
     height: auto;
@@ -98,16 +98,15 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP)
+   SCREENSHOTS DESKTOP
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
-    text-align: center; /* center all screenshots on desktop */
+    text-align: left; /* align screenshots to left for desktop */
 }
 
 #screenshots .mode img {
     display: block;
-    margin: 0 auto;
     height: auto;
 }
 
@@ -117,7 +116,7 @@ section {
     width: 905px;
     height: 137px;
     position: relative;
-    left: 168px;
+    left: 168px; /* aligns with the previous screenshot */
     top: 0;
 }
 
@@ -175,15 +174,15 @@ footer {
 ============================ */
 @media (max-width: 600px) {
 
-    /* All screenshots: full width */
+    /* All screenshots full-width on mobile */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0; /* no centering on mobile */
+        margin: 0; /* left-aligned for mobile */
     }
 
-    /* Bottom image: fill width, left-aligned */
+    /* Bottom image: full width + left-aligned for mobile */
     .bottom-shot {
         position: static;
         width: 100%;
@@ -191,5 +190,6 @@ footer {
         height: auto;
         margin: 0;
         display: block;
+        left: 0; /* override desktop left */
     }
 }
