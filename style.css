@@ -176,32 +176,26 @@ footer {
 }
 
 /* ============================
-   MOBILE FIXES ONLY (FINAL)
-   Does NOT affect desktop
+   MOBILE FIXES ONLY
+   (NO DESKTOP IMPACT)
 ============================ */
 @media (max-width: 600px) {
 
-    /* All screenshots: full width, natural ratio */
+    /* All screenshots full-width */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0 auto;
+        margin: 0;
     }
 
-/* ============================
-   MOBILE FIX – LAST IMAGE
-   Bigger + LEFT ALIGNED
-============================ */
-@media (max-width: 600px) {
-
+    /* Last image: same width, LEFT aligned */
     .bottom-shot {
         position: static;
         width: 100%;
         max-width: 100%;
         height: auto;
-        margin: 0;          /* LEFT aligned */
+        margin: 0;
         display: block;
     }
 }
-
