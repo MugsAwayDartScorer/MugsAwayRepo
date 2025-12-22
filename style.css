@@ -99,29 +99,27 @@ section {
 
 /* ============================
    SCREENSHOTS (DESKTOP)
-   Leave everything else untouched
+   All screenshots centered
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;   /* keep existing screenshot placement */
+    margin: 20px auto;
+    text-align: center; /* center all screenshots */
 }
 
 #screenshots .mode img {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto; /* centers each screenshot */
     height: auto;
 }
 
-/* ============================
-   BOTTOM IMAGE (DESKTOP)
-   Only this moves to align with above screenshot
-============================ */
+/* Bottom image (desktop)
+   Centered like the others */
 .bottom-shot {
     display: block;
     width: 905px;       /* correct Windows size */
     height: 137px;
-    position: relative;
-    left: 168px;        /* aligns bottom image with previous screenshot */
-    top: 0;
+    margin: 0 auto;     /* center the bottom image */
+    position: static;   /* remove previous left offset */
 }
 
 /* ============================
