@@ -100,27 +100,23 @@ section {
    SCREENSHOTS
 ============================ */
 #screenshots .mode {
-    margin: 20px auto;  /* keeps original spacing */
+    margin: 20px auto;  /* keep original spacing */
 }
 
 #screenshots .mode img {
     display: block;
-    height: auto;       /* original width is set in HTML */
+    height: auto;       /* widths set in HTML */
 }
 
-/* Bottom image wrapper to align with screenshot above */
-.bottom-wrapper {
-    width: 574px;       /* match the width of the screenshot above it */
-    margin: 0 auto;     /* center on Windows */
-}
-
-/* Bottom image fills the wrapper */
+/* Bottom image (desktop) */
 .bottom-shot {
     display: block;
-    width: 100%;
-    height: auto;
+    width: 905px;       /* original desktop size */
+    height: 137px;
+    position: relative;
+    left: 168px;        /* aligns with screenshot above */
+    top: 0;
     margin: 0;
-    position: static;
 }
 
 /* ============================
@@ -178,12 +174,12 @@ footer {
 @media (max-width: 600px) {
 
     #screenshots .mode img,
-    .bottom-wrapper,
     .bottom-shot {
         width: 100%;       /* fill phone width */
         max-width: 100%;
         height: auto;
         margin: 0;
         position: static;
+        left: 0;
     }
 }
