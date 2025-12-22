@@ -189,11 +189,19 @@ footer {
         margin: 0 auto;
     }
 
-    /* Reset desktop positioning on last image */
+/* ============================
+   MOBILE FIX – LAST IMAGE
+   Bigger + LEFT ALIGNED
+============================ */
+@media (max-width: 600px) {
+
     .bottom-shot {
         position: static;
         width: 100%;
+        max-width: 100%;
         height: auto;
-        margin: 0 auto;
+        margin: 0;          /* LEFT aligned */
+        display: block;
     }
 }
+
