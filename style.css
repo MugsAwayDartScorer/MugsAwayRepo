@@ -1,10 +1,6 @@
 /* ============================
    GLOBAL STYLES
 ============================ */
-:root {
-    color-scheme: dark;
-}
-
 html, body {
     background-color: #263238;
     min-height: 100%;
@@ -110,22 +106,22 @@ section {
     text-align: center;
 }
 
-/* Desktop screenshots original sizes */
+/* Restore desktop screenshots original sizes */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
     height: auto;
-    width: auto;         /* keep natural width */
-    max-width: 574px;    /* limit width to original */
+    width: auto;         /* natural width */
+    max-width: 574px;    /* constrain to original width */
 }
 
 /* Bottom image (desktop) */
 .bottom-shot {
     display: block;
-    width: 905px;        /* desktop width */
+    width: 905px;
     height: 137px;
     position: relative;
-    left: 168px;         /* aligns with images above */
+    left: 168px;        /* perfectly aligned with images above */
     top: 0;
     margin: 0;
 }
@@ -185,7 +181,7 @@ footer {
 @media (max-width: 600px) {
 
     html, body {
-        background-color: #263238;
+        background-color: #263238; /* force same as Windows */
     }
 
     /* Screenshots full-width on mobile */
@@ -193,8 +189,8 @@ footer {
         width: 100%;
         max-width: none;
         height: auto;
-        margin: 0;
         display: block;
+        margin: 0;
     }
 
     /* Bottom image left-aligned, full width on mobile */
