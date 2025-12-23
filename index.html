@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="color-scheme" content="dark">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#263238">
     <title>Mugs Away Dart Scoring App</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,51 +27,52 @@
         <a href="assets/Mugs Away Windows.zip" download>
             <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
         </a>
+
         <p class="instructions">
             Unzip to a folder of your choice<br>
             Run the Mugs Away Windows.exe<br>
             Play Darts!
         </p>
+
         <a href="https://buymeacoffee.com/mugsaway" target="_blank">
             <button id="donateBtn">Buy Me a Beer!</button>
         </a>
     </div>
 </section>
 
-<section id="screenshots">
-    <p>Screenshots from Android version (Coming Soon)</p>
+<!-- ============================
+   SCREENSHOTS WRAPPER
+============================ -->
+<section id="screenshots-wrapper">
 
     <div class="mode">
-        <img src="assets/Default Screen.jpg" style="width:450px;height:999px;" alt="">
+        <img src="assets/Default Screen.jpg" alt="Default Screen">
     </div>
 
     <div class="mode">
-        <img src="assets/Stats Page.jpg" style="width:450px;height:999px;" alt="">
+        <img src="assets/Stats Page.jpg" alt="Stats Page">
     </div>
 
     <div class="mode">
         <h3>Handicap Mode</h3>
-        <img src="assets/Handicap Mode.jpg" style="width:450px;height:999px;" alt="">
+        <img src="assets/Handicap Mode.jpg" alt="Handicap Mode">
     </div>
 
     <div class="mode">
         <h3>Menu</h3>
-        <img src="assets/Menu1.jpg" style="width:574px;height:634px;" alt="">
+        <img src="assets/Menu1.jpg" alt="Menu 1">
     </div>
 
     <div class="mode">
-        <img src="assets/Menu 2.jpg" style="width:574px;height:533px;" alt="">
+        <img src="assets/Menu 2.jpg" alt="Menu 2">
     </div>
 
     <div class="mode">
-        <img src="assets/About Instructions.jpg" class="bottom-shot" alt="">
+        <img src="assets/About Instrutions.jpg" class="bottom-shot" alt="About Instructions">
     </div>
 </section>
 
 <section id="reviews">
-    <p style="font-size: 0.85em;">
-Reviews are user-submitted and reflect personal opinions.
-</p>
     <h2 class="section-title">User Reviews</h2>
     <div id="reviewsContainer"></div>
 
@@ -100,20 +99,11 @@ Reviews are user-submitted and reflect personal opinions.
         <button type="submit">Subscribe</button>
     </form>
 </section>
-<p style="font-size: 0.8em;">
-We’ll only email you about the Android release and important app updates.
-You can unsubscribe at any time.
-</p>
 
 <footer>
     <p>© 2025 Colin Prout</p>
     <p><em>Android version coming soon!</em></p>
 </footer>
-    
-<p>
-<a href="privacy.html">Privacy Policy</a> |
-<a href="terms.html">Terms of Use</a>
-</p>
 
 <script type="module" src="js/firebase-init.js"></script>
 <script type="module" src="js/reviews.js"></script>
@@ -123,7 +113,4 @@ You can unsubscribe at any time.
 
 </body>
 </html>
-
-
-
 
