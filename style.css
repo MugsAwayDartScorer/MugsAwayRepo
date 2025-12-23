@@ -103,39 +103,28 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS WRAPPER
+   SCREENSHOTS (DESKTOP ORIGINAL)
 ============================ */
-#screenshots-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* centers all images together */
-    width: 905px;          /* desktop width */
+#screenshots .mode {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#screenshots .mode img {
+    display: block;
     margin: 0 auto;
-}
-
-/* Individual screenshot images */
-#screenshots-wrapper .mode img {
-    display: block;
-    width: 100%;
     height: auto;
-    margin: 0;
 }
 
-/* Bottom image */
-#screenshots-wrapper .bottom-shot {
-    width: 905px;
-    height: 137px;
+/* Bottom image (desktop) */
+.bottom-shot {
     display: block;
+    width: 905px;      /* desktop width */
+    height: 137px;
+    position: relative;
+    left: 168px;       /* lines up with image above */
+    top: 0;
     margin: 0;
-    position: relative; /* keep it positioned for offset */
-    left: 0;           /* default, adjustable below */
-}
-
-/* ============================
-   OFFSET FOR BOTTOM IMAGE (DESKTOP)
-============================ */
-#screenshots-wrapper .bottom-shot {
-    left: 12px; /* adjust this until bottom image aligns perfectly */
 }
 
 /* ============================
@@ -196,22 +185,24 @@ footer {
         background-color: #263238;
     }
 
-    /* Wrapper full width on mobile, left-aligned */
-    #screenshots-wrapper {
-        width: 100vw;
-        align-items: flex-start;
-    }
-
-    /* Screenshots scale full width */
-    #screenshots-wrapper .mode img,
-    #screenshots-wrapper .bottom-shot {
+    /* Screenshots full width on mobile */
+    #screenshots .mode img {
         width: 100%;
         max-width: none;
         height: auto;
         margin: 0;
         display: block;
-        object-fit: contain;
-        left: 0 !important; /* ignore desktop offset on mobile */
+    }
+
+    /* Bottom image left-aligned and full width on mobile */
+    .bottom-shot {
         position: static !important;
+        width: auto !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: block;
     }
 }
