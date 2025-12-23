@@ -103,16 +103,15 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP BASELINE)
+   SCREENSHOTS (DESKTOP)
 ============================ */
 #screenshots {
     display: flex;
     flex-direction: column;
-    align-items: center;     /* centre the whole group */
+    align-items: center;   /* centre first screenshot */
     margin: 0 auto;
 }
 
-/* Desktop screenshots use natural width */
 #screenshots .mode img {
     width: auto;
     max-width: 905px;
@@ -121,15 +120,19 @@ section {
     margin: 0;
 }
 
+/* 🔑 ALIGN BOTTOM IMAGE WITH SCREENSHOTS */
+#screenshots .mode:last-child {
+    align-self: flex-start;
+}
+
 /* ============================
    BOTTOM IMAGE (DESKTOP)
 ============================ */
 .bottom-shot {
-    display: block;
     width: 905px;
     height: 137px;
+    display: block;
     margin: 0;
-    align-self: flex-start;  /* 🔑 aligns with screenshots above */
 }
 
 /* ============================
@@ -191,19 +194,15 @@ footer {
         overflow-x: hidden;
     }
 
-    /* Screenshots full-width on phone */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
-        display: block;
     }
 
-    /* Bottom image full-width on phone */
     .bottom-shot {
         width: 100vw;
         height: auto;
-        align-self: stretch;
         display: block;
     }
 }
