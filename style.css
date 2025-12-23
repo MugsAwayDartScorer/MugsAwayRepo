@@ -123,14 +123,20 @@ section {
 
 /* Bottom image */
 #screenshots-wrapper .bottom-shot {
-   
     width: 905px;
     height: 137px;
     display: block;
     margin: 0;
+    position: relative; /* keep it positioned for offset */
+    left: 0;           /* default, adjustable below */
 }
+
+/* ============================
+   OFFSET FOR BOTTOM IMAGE (DESKTOP)
+============================ */
 #screenshots-wrapper .bottom-shot {
-    left: 12px;  /* adjust until it aligns perfectly */
+    left: 12px; /* adjust this until bottom image aligns perfectly */
+}
 
 /* ============================
    REVIEWS
@@ -205,6 +211,7 @@ footer {
         margin: 0;
         display: block;
         object-fit: contain;
+        left: 0 !important; /* ignore desktop offset on mobile */
+        position: static !important;
     }
 }
-
