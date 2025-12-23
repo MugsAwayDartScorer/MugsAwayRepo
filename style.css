@@ -110,10 +110,13 @@ section {
     text-align: center;
 }
 
+/* Restore desktop screenshot sizes to original */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
     height: auto;
+    width: auto;  /* restore natural width */
+    max-width: 574px; /* constrain to original max width */
 }
 
 /* Bottom image (desktop) */
@@ -122,7 +125,7 @@ section {
     width: 905px;      /* desktop width */
     height: 137px;
     position: relative;
-    left: 168px;       /* lines up with image above */
+    left: 168px;       /* aligns perfectly with image above */
     top: 0;
     margin: 0;
 }
@@ -185,7 +188,7 @@ footer {
         background-color: #263238;
     }
 
-    /* Screenshots full width on mobile */
+    /* Screenshots full-width on mobile */
     #screenshots .mode img {
         width: 100%;
         max-width: none;
