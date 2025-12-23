@@ -12,7 +12,7 @@ html, body {
     color: #CCCCCC;
     font-family: Arial, sans-serif;
     text-align: center;
-    overflow-x: hidden; /* prevent horizontal scrolling */
+    overflow-x: hidden; /* prevent horizontal scroll */
 }
 
 /* ============================
@@ -110,22 +110,22 @@ section {
     text-align: center;
 }
 
-/* Restore desktop screenshot sizes to original */
+/* Desktop screenshots original sizes */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
     height: auto;
-    width: auto;  /* restore natural width */
-    max-width: 574px; /* constrain to original max width */
+    width: auto;         /* keep natural width */
+    max-width: 574px;    /* limit width to original */
 }
 
 /* Bottom image (desktop) */
 .bottom-shot {
     display: block;
-    width: 905px;      /* desktop width */
+    width: 905px;        /* desktop width */
     height: 137px;
     position: relative;
-    left: 168px;       /* aligns perfectly with image above */
+    left: 168px;         /* aligns with images above */
     top: 0;
     margin: 0;
 }
@@ -197,7 +197,7 @@ footer {
         display: block;
     }
 
-    /* Bottom image left-aligned and full width on mobile */
+    /* Bottom image left-aligned, full width on mobile */
     .bottom-shot {
         position: static !important;
         width: auto !important;
