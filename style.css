@@ -102,39 +102,27 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS – first three main images
+   SCREENSHOTS
 ============================ */
-#screenshots .mode img[src*="Default Screen.jpg"],
-#screenshots .mode img[src*="Stats Page.jpg"],
-#screenshots .mode img[src*="Handicap Mode.jpg"] {
-    display: block;
-    margin: 0 auto;
-    height: auto;       /* maintain aspect ratio */
-    width: auto;
-    max-width: 450px;   /* uniform width on desktop */
+#screenshots .mode {
+    margin: 20px auto;
+    text-align: center;
 }
 
-/* All other screenshots remain unaffected */
 #screenshots .mode img {
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
     height: auto;
-    width: auto;
-    max-width: 100%;
 }
 
-/* ============================
-   BOTTOM IMAGE ONLY
-============================ */
+/* Bottom image aligned with screenshots above (Windows) */
 .bottom-shot {
+    display: block;
     width: 905px;
     height: 137px;
     position: relative;
     left: 168px;   /* lines up with image above */
     top: 0;
     margin: 0;
-    display: block;
-    max-width: none;
 }
 
 /* ============================
@@ -154,17 +142,18 @@ section {
     border-radius: 5px;
     background-color: #39464E;
 }
+
 /* ============================
    REVIEW DISCLAIMER
 ============================ */
 .review-disclaimer {
-    font-size: 0.9em;          /* slightly smaller text */
-    color: #AAAAAA;            /* lighter gray */
-    margin: 5px 0 15px 0;      /* spacing: top 5px, bottom 15px */
-    text-align: center;        /* center under the heading */
-    font-style: italic;        /* optional, makes it look subtle */
+    font-size: 0.9em;
+    color: #AAAAAA;
+    margin: 5px 0 15px 0;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.4;
 }
-
 
 /* ============================
    FORMS
@@ -189,6 +178,17 @@ textarea {
 }
 
 /* ============================
+   SUBSCRIBE NOTE
+============================ */
+.subscribe-note {
+    font-size: 0.85em;
+    color: #AAAAAA;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ============================
    FOOTER
 ============================ */
 footer {
@@ -198,13 +198,15 @@ footer {
 }
 
 /* ============================
-   MOBILE FIX – bottom image only
+   MOBILE FIXES
 ============================ */
 @media (max-width: 600px) {
+
     html, body {
-        background-color: #263238;
+        background-color: #263238; /* force same as Windows */
     }
 
+    /* All screenshots full-width on phone */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -213,6 +215,7 @@ footer {
         margin: 0 auto;
     }
 
+    /* Bottom image: left-aligned, correct size on phone */
     .bottom-shot {
         position: static !important;
         width: auto !important;
@@ -224,4 +227,3 @@ footer {
         display: block;
     }
 }
-
