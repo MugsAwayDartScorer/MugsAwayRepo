@@ -102,13 +102,17 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS – ORIGINAL
+   SCREENSHOTS – first three only
 ============================ */
-#screenshots .mode {
-    margin: 20px auto;
-    text-align: center;
+#screenshots .mode:nth-child(-n+3) img {
+    display: block;
+    margin: 0 auto;
+    height: auto;       /* maintain ratio */
+    width: auto;
+    max-width: 450px;   /* restore original desktop size */
 }
 
+/* Other screenshots (like Menu images) remain auto-sized, bottom image untouched */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
@@ -124,7 +128,7 @@ section {
     width: 905px;
     height: 137px;
     position: relative;
-    left: 168px;      /* adjust to align with above images */
+    left: 168px;
     top: 0;
     margin: 0;
     display: block;
