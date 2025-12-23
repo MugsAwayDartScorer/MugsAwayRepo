@@ -126,10 +126,9 @@ section {
     width: 905px;       /* fixed desktop width */
     height: 137px;      /* fixed desktop height */
     position: relative;
-    left: 168px;        /* aligns with images above */
+    left: 168px;        /* aligns perfectly with images above */
     top: 0;
     margin: 0;
-    object-fit: none;   /* keep original aspect ratio */
 }
 
 /* ============================
@@ -186,13 +185,12 @@ footer {
 ============================ */
 @media (max-width: 600px) {
 
-    /* Lock horizontal scroll and set background */
     html, body {
-        background-color: #263238;
-        overflow-x: hidden;
+        background-color: #263238; /* same as Windows */
+        overflow-x: hidden;        /* lock horizontal scrolling */
     }
 
-    /* Screenshots full-width and keep aspect ratio */
+    /* Screenshots full-width on phone, maintain aspect ratio */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -202,7 +200,7 @@ footer {
         object-fit: contain;
     }
 
-    /* Bottom image responsive, left-aligned, proper aspect ratio */
+    /* Bottom image: left-aligned, full width, proper aspect ratio */
     .bottom-shot {
         position: static !important;   
         width: auto !important;        
