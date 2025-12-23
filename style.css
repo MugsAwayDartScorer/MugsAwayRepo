@@ -102,25 +102,29 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS
+   SCREENSHOTS & IMAGES
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
     text-align: center;
 }
 
-#screenshots .mode img {
-    display: inline-block;
-    height: auto;
+#screenshots .mode img,
+.bottom-shot {
+    width: 100%;        /* scale to container width */
+    max-width: 100%;    /* prevent exceeding container */
+    height: auto;       /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; /* prevent stretching */
 }
 
 /* Bottom image aligned with screenshots above (Windows) */
 .bottom-shot {
-    display: block;
-    width: 905px;
+    width: 905px;        /* desktop full size */
     height: 137px;
     position: relative;
-    left: 168px;   /* lines up with image above */
+    left: 168px;         /* aligns with image above */
     top: 0;
     margin: 0;
 }
@@ -179,19 +183,19 @@ footer {
 ============================ */
 @media (max-width: 600px) {
 
-    /* Force same background as Windows */
     html, body {
-        background-color: #263238;
-        overflow-x: hidden; /* 🔒 lock horizontal scroll */
+        background-color: #263238; /* same as Windows */
+        overflow-x: hidden;        /* lock horizontal scrolling */
     }
 
-    /* All screenshots full-width on phone */
+    /* All screenshots full-width on phone, keep aspect ratio */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
         display: block;
         margin: 0 auto;
+        object-fit: contain;
     }
 
     /* Bottom image: left-aligned, correct size on phone */
@@ -204,5 +208,6 @@ footer {
         margin-left: 0 !important;
         margin-right: 0 !important;
         display: block;
+        object-fit: contain;
     }
 }
