@@ -3,6 +3,7 @@
 ============================ */
 :root {
     color-scheme: dark;
+    --bottom-offset-x: 0px; /* 👈 ADJUST THIS (desktop only) */
 }
 
 html, body {
@@ -108,21 +109,16 @@ section {
 #screenshots {
     display: flex;
     flex-direction: column;
-    align-items: center;   /* centre first screenshot */
+    align-items: center;
     margin: 0 auto;
 }
 
 #screenshots .mode img {
-    width: auto;           /* allow centring to work */
+    width: auto;
     max-width: 905px;
     height: auto;
     display: block;
     margin: 0;
-}
-
-/* 🔑 ALIGN BOTTOM IMAGE WITH SCREENSHOTS */
-#screenshots .mode:last-child {
-    align-self: center;    /* ✅ move RIGHT to match screenshots */
 }
 
 /* ============================
@@ -133,6 +129,7 @@ section {
     height: 137px;
     display: block;
     margin: 0;
+    transform: translateX(var(--bottom-offset-x)); /* 👈 adjustable */
 }
 
 /* ============================
@@ -203,6 +200,6 @@ footer {
     .bottom-shot {
         width: 100vw;
         height: auto;
-        display: block;
+        transform: none; /* 🔒 disable offset on mobile */
     }
 }
