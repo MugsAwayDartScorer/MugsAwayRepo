@@ -102,7 +102,7 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS
+   SCREENSHOTS – ORIGINAL
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
@@ -110,20 +110,25 @@ section {
 }
 
 #screenshots .mode img {
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     height: auto;
+    width: auto;
+    max-width: 100%;
 }
 
 /* ============================
    BOTTOM IMAGE ONLY
 ============================ */
 .bottom-shot {
-    width: 905px;       /* desktop width */
-    height: 137px;      /* desktop height */
+    width: 905px;
+    height: 137px;
     position: relative;
-    left: 168px;        /* 🔧 adjust this value to line up perfectly */
+    left: 168px;      /* adjust to align with above images */
     top: 0;
     margin: 0;
+    display: block;
+    max-width: none;
 }
 
 /* ============================
@@ -179,12 +184,10 @@ footer {
    MOBILE FIX – bottom image only
 ============================ */
 @media (max-width: 600px) {
-
     html, body {
-        background-color: #263238; /* force same as Windows */
+        background-color: #263238;
     }
 
-    /* All screenshots full-width on phone */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -193,14 +196,13 @@ footer {
         margin: 0 auto;
     }
 
-    /* Bottom image: left-aligned, correct size on phone */
     .bottom-shot {
-        position: static !important;      
-        width: auto !important;           
-        min-width: 100vw !important;      
+        position: static !important;
+        width: auto !important;
+        min-width: 100vw !important;
         max-width: none !important;
-        height: auto !important;          
-        margin-left: 0 !important;        
+        height: auto !important;
+        margin-left: 0 !important;
         margin-right: 0 !important;
         display: block;
     }
