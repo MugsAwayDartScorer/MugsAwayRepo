@@ -1,225 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mugs Away Dart Scoring App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugs Away Dart Scoring App</title>
+    <style>
+        /* ============================
+           GLOBAL STYLES
+        ============================ */
+        :root {
+            color-scheme: dark;
+        }
 
-<!-- Embedded clean CSS -->
-<style>
-/* ============================
-   GLOBAL STYLES
-============================ */
-html, body {
-    background-color: #263238;
-    min-height: 100%;
-    margin: 0;
-    color: #CCCCCC;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    overflow-x: hidden; /* prevent horizontal scroll */
-}
+        html, body {
+            background-color: #263238;
+            min-height: 100%;
+            margin: 0;
+            color: #CCCCCC;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-/* ============================
-   HEADER / TITLE
-============================ */
-.title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-}
+        /* ============================
+           HEADER / TITLE
+        ============================ */
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
 
-.title-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .title-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.title-text h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #FFFFFF;
-}
+        .title-text h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #FFFFFF;
+        }
 
-.title-text h2 {
-    font-size: 1.5em;
-    margin: 0;
-    color: #CCCCCC;
-}
+        .title-text h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #CCCCCC;
+        }
 
-.title-img {
-    width: 75px;
-    height: auto;
-}
+        .title-img {
+            width: 75px;
+            height: auto;
+        }
 
-.title-container img {
-    width: 175px;
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-    max-width: none;
-}
+        .title-container img {
+            width: 175px;
+            height: auto;
+            display: block;
+            flex-shrink: 0;
+            max-width: none;
+        }
 
-/* ============================
-   INTRO
-============================ */
-.intro p {
-    margin: 0;
-    padding: 2px 0;
-}
+        /* ============================
+           INTRO
+        ============================ */
+        .intro p {
+            margin: 0;
+            padding: 2px 0;
+        }
 
-/* ============================
-   DOWNLOAD / DONATE
-============================ */
-#download-donate .btn-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
+        /* ============================
+           DOWNLOAD / DONATE
+        ============================ */
+        #download-donate .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
 
-#downloadBtn,
-#donateBtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
+        #downloadBtn,
+        #donateBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-#downloadBtn:hover,
-#donateBtn:hover {
-    background-color: #45a049;
-}
+        #downloadBtn:hover,
+        #donateBtn:hover {
+            background-color: #45a049;
+        }
 
-.instructions {
-    margin: 0;
-}
+        .instructions {
+            margin: 0;
+        }
 
-/* ============================
-   SECTIONS
-============================ */
-section {
-    padding: 40px 20px;
-}
+        /* ============================
+           SECTIONS
+        ============================ */
+        section {
+            padding: 40px 20px;
+        }
 
-/* ============================
-   SCREENSHOTS (DESKTOP ORIGINAL)
-============================ */
-#screenshots .mode {
-    margin: 20px auto;
-    text-align: center;
-}
+        /* ============================
+           SCREENSHOTS
+        ============================ */
+        #screenshots .mode {
+            margin: 20px auto;
+            text-align: center;
+        }
 
-#screenshots .mode img {
-    display: block;
-    margin: 0 auto;
-    height: auto;
-    max-width: 574px; /* desktop screenshots */
-}
+        #screenshots .mode img {
+            display: inline-block;
+            height: auto;
+        }
 
-/* Bottom image (desktop) */
-.bottom-shot {
-    display: block;
-    width: 905px;
-    height: 137px;
-    position: relative;
-    left: 168px; /* adjustable offset if needed */
-    margin: 0;
-}
+        /* ============================
+           BOTTOM IMAGE ONLY
+        ============================ */
+        .bottom-shot {
+            width: 905px;       /* desktop width */
+            height: 137px;      /* desktop height */
+            position: relative;
+            left: 168px;        /* 🔧 adjust this value to align perfectly */
+            top: 0;
+            margin: 0;
+            display: block;
+            max-width: none;
+        }
 
-/* ============================
-   REVIEWS
-============================ */
-#reviewsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        /* ============================
+           REVIEWS
+        ============================ */
+        #reviewsContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.review {
-    max-width: 600px;
-    width: 100%;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #39464E;
-}
+        .review {
+            max-width: 600px;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #39464E;
+        }
 
-/* ============================
-   FORMS
-============================ */
-.form-section {
-    max-width: 400px;
-    margin: 0 auto;
-}
+        /* ============================
+           FORMS
+        ============================ */
+        .form-section {
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-}
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
 
-textarea {
-    resize: none;
-}
+        textarea {
+            resize: none;
+        }
 
-.legal {
-    font-size: 0.8em;
-    color: #AAAAAA;
-    margin-top: 5px;
-}
+        /* ============================
+           FOOTER
+        ============================ */
+        footer {
+            background-color: #1E272C;
+            padding: 20px;
+            margin-top: 40px;
+        }
 
-/* ============================
-   FOOTER
-============================ */
-footer {
-    background-color: #1E272C;
-    padding: 20px;
-    margin-top: 40px;
-}
+        footer a {
+            color: #CCCCCC;
+            text-decoration: underline;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
 
-/* ============================
-   MOBILE FIXES
-============================ */
-@media (max-width: 600px) {
+        footer a:hover {
+            color: #FFFFFF;
+        }
 
-    html, body {
-        background-color: #263238; /* ensure same as desktop */
-    }
+        /* ============================
+           MOBILE FIX – bottom image only
+        ============================ */
+        @media (max-width: 600px) {
 
-    /* Screenshots full-width on mobile */
-    #screenshots .mode img {
-        width: 100%;
-        max-width: none;
-        height: auto;
-        display: block;
-        margin: 0;
-    }
+            html, body {
+                background-color: #263238; /* force same as Windows */
+            }
 
-    /* Bottom image left-aligned, full width */
-    .bottom-shot {
-        position: static !important;
-        width: auto !important;
-        min-width: 100vw !important;
-        max-width: none !important;
-        height: auto !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        display: block;
-    }
-}
-</style>
+            /* All screenshots full-width on phone */
+            #screenshots .mode img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+
+            /* Bottom image: left-aligned, correct size on phone */
+            .bottom-shot {
+                position: static !important;
+                width: auto !important;
+                min-width: 100vw !important;
+                max-width: none !important;
+                height: auto !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                display: block;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <header class="title-container">
@@ -241,11 +248,13 @@ footer {
         <a href="assets/Mugs Away Windows.zip" download>
             <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
         </a>
+
         <p class="instructions">
             Unzip to a folder of your choice<br>
             Run the Mugs Away Windows.exe<br>
             Play Darts!
         </p>
+
         <a href="https://buymeacoffee.com/mugsaway" target="_blank">
             <button id="donateBtn">Buy Me a Beer!</button>
         </a>
@@ -278,7 +287,7 @@ footer {
     </div>
 
     <div class="mode">
-        <img src="assets/About Instructions.jpg" class="bottom-shot" alt="">
+        <img src="assets/About Instrutions.jpg" class="bottom-shot" alt="">
     </div>
 </section>
 
@@ -307,16 +316,16 @@ footer {
     <form id="subscribeForm" class="form-section">
         <input id="email" type="email" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
-        <p class="legal">
-            By subscribing, you consent to receive email notifications about the app release and updates only. 
-            You can unsubscribe at any time.
-        </p>
     </form>
 </section>
 
 <footer>
     <p>© 2025 Colin Prout</p>
     <p><em>Android version coming soon!</em></p>
+    <p>
+        <a href="terms.html" target="_blank">Terms & Conditions</a> | 
+        <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </p>
 </footer>
 
 <script type="module" src="js/firebase-init.js"></script>
@@ -327,4 +336,3 @@ footer {
 
 </body>
 </html>
-
