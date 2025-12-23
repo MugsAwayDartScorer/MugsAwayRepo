@@ -102,17 +102,19 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS – Handicap Mode only
+   SCREENSHOTS – first three main images
 ============================ */
+#screenshots .mode img[src*="Default Screen.jpg"],
+#screenshots .mode img[src*="Stats Page.jpg"],
 #screenshots .mode img[src*="Handicap Mode.jpg"] {
     display: block;
     margin: 0 auto;
     height: auto;       /* maintain aspect ratio */
     width: auto;
-    max-width: 450px;   /* restore original desktop size */
+    max-width: 450px;   /* uniform width on desktop */
 }
 
-/* Other screenshots remain untouched */
+/* All other screenshots remain unaffected */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
@@ -128,7 +130,7 @@ section {
     width: 905px;
     height: 137px;
     position: relative;
-    left: 168px;
+    left: 168px;   /* lines up with image above */
     top: 0;
     margin: 0;
     display: block;
