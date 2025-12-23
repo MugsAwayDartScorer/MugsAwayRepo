@@ -1,121 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mugs Away Dart Scoring App</title>
-<link rel="stylesheet" href="style.css">
+/* ============================
+   GLOBAL STYLES
+============================ */
+html, body {
+    background-color: #263238;
+    min-height: 100%;
+    margin: 0;
+    color: #CCCCCC;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
 
-<!-- Mobile dark mode & theme color -->
-<meta name="theme-color" content="#263238">
-</head>
+/* ============================
+   HEADER / TITLE
+============================ */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
 
-<body>
+.title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-<header class="title-container">
-    <img src="assets/dartboardnormal.png" class="title-img" alt="">
-    <div class="title-text">
-        <h1>Mugs Away</h1>
-        <h2>Dart Scoring App</h2>
-    </div>
-    <img src="assets/dartboardnormal.png" class="title-img" alt="">
-</header>
+.title-text h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #FFFFFF;
+}
 
-<section class="intro">
-    <p>Play 101, 301, 501, 701 and 1001 with a friend or against the Bot!</p>
-    <p>No fuss, straightforward scoring app for dart players.</p>
-</section>
+.title-text h2 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #CCCCCC;
+}
 
-<section id="download-donate">
-    <div class="btn-container">
-        <a href="assets/Mugs Away Windows.zip" download>
-            <button id="downloadBtn">Download Windows App Free! (Zip file)</button>
-        </a>
+.title-img {
+    width: 75px;
+    height: auto;
+}
 
-        <p class="instructions">
-            Unzip to a folder of your choice<br>
-            Run the Mugs Away Windows.exe<br>
-            Play Darts!
-        </p>
+.title-container img {
+    width: 175px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+    max-width: none;
+}
 
-        <a href="https://buymeacoffee.com/mugsaway" target="_blank">
-            <button id="donateBtn">Buy Me a Beer!</button>
-        </a>
-    </div>
-</section>
+/* ============================
+   INTRO
+============================ */
+.intro p {
+    margin: 0;
+    padding: 2px 0;
+}
 
-<section id="screenshots">
-    <p>Screenshots from Android version (Coming Soon)</p>
+/* ============================
+   DOWNLOAD / DONATE
+============================ */
+#download-donate .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-    <div class="mode">
-        <img src="assets/Default Screen.jpg" alt="">
-    </div>
+#downloadBtn,
+#donateBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-    <div class="mode">
-        <img src="assets/Stats Page.jpg" alt="">
-    </div>
+#downloadBtn:hover,
+#donateBtn:hover {
+    background-color: #45a049;
+}
 
-    <div class="mode">
-        <h3>Handicap Mode</h3>
-        <img src="assets/Handicap Mode.jpg" alt="">
-    </div>
+.instructions {
+    margin: 0;
+}
 
-    <div class="mode">
-        <h3>Menu</h3>
-        <img src="assets/Menu1.jpg" alt="">
-    </div>
+/* ============================
+   SECTIONS
+============================ */
+section {
+    padding: 40px 20px;
+}
 
-    <div class="mode">
-        <img src="assets/Menu 2.jpg" alt="">
-    </div>
+/* ============================
+   SCREENSHOTS (DESKTOP ORIGINAL)
+============================ */
+#screenshots .mode {
+    margin: 20px auto;
+    text-align: center;
+}
 
-    <div class="mode">
-        <img src="assets/About Instrutions.jpg" class="bottom-shot" alt="">
-    </div>
-</section>
+/* Desktop screenshots original sizes */
+#screenshots .mode img {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    width: auto;
+    max-width: 574px;
+}
 
-<section id="reviews">
-    <h2 class="section-title">User Reviews</h2>
-    <div id="reviewsContainer"></div>
+/* Bottom image (desktop) */
+.bottom-shot {
+    display: block;
+    width: 905px;
+    height: 137px;
+    position: relative;
+    left: 168px;
+    top: 0;
+    margin: 0;
+}
 
-    <form id="reviewForm" class="form-section">
-        <h3>Submit Your Review</h3>
-        <input id="name" type="text" placeholder="Your Name" required>
-        <select id="rating" required>
-            <option value="">Rating</option>
-            <option value="1">★</option>
-            <option value="2">★★</option>
-            <option value="3">★★★</option>
-            <option value="4">★★★★</option>
-            <option value="5">★★★★★</option>
-        </select>
-        <textarea id="comment" rows="3" placeholder="Your review" required></textarea>
-        <button type="submit">Submit Review</button>
-    </form>
-</section>
+/* ============================
+   REVIEWS
+============================ */
+#reviewsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-<section id="subscribe">
-    <h2 class="section-title">Get Android Release Updates</h2>
-    <form id="subscribeForm" class="form-section">
-        <input id="email" type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-        <p class="legal">
-            By subscribing, you consent to receive email notifications about the app release and updates only. 
-            You can unsubscribe at any time.
-        </p>
-    </form>
-</section>
+.review {
+    max-width: 600px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #39464E;
+}
 
-<footer>
-    <p>© 2025 Colin Prout</p>
-    <p><em>Android version coming soon!</em></p>
-</footer>
+/* ============================
+   FORMS
+============================ */
+.form-section {
+    max-width: 400px;
+    margin: 0 auto;
+}
 
-<script type="module" src="js/firebase-init.js"></script>
-<script type="module" src="js/reviews.js"></script>
-<script type="module" src="js/downloads.js"></script>
-<script type="module" src="js/pageviews.js"></script>
-<script type="module" src="js/subscribe.js"></script>
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
 
-</body>
-</html>
+textarea {
+    resize: none;
+}
+
+.legal {
+    font-size: 0.8em;
+    color: #AAAAAA;
+    margin-top: 5px;
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+    background-color: #1E272C;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ============================
+   MOBILE FIXES
+============================ */
+@media (max-width: 600px) {
+
+    html, body {
+        background-color: #263238;
+    }
+
+    /* Screenshots full-width on mobile */
+    #screenshots .mode img {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        display: block;
+        margin: 0;
+    }
+
+    /* Bottom image left-aligned, full width on mobile */
+    .bottom-shot {
+        position: static !important;
+        width: auto !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: block;
+    }
+}
