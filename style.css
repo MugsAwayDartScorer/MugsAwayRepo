@@ -1,10 +1,6 @@
 /* ============================
    GLOBAL STYLES
 ============================ */
-:root {
-    color-scheme: dark;
-}
-
 html, body {
     background-color: #263238;
     min-height: 100%;
@@ -144,18 +140,6 @@ section {
 }
 
 /* ============================
-   REVIEW DISCLAIMER
-============================ */
-.review-disclaimer {
-    font-size: 0.9em;
-    color: #AAAAAA;
-    margin: 5px 0 15px 0;
-    text-align: center;
-    font-style: italic;
-    line-height: 1.4;
-}
-
-/* ============================
    FORMS
 ============================ */
 .form-section {
@@ -178,17 +162,6 @@ textarea {
 }
 
 /* ============================
-   SUBSCRIBE NOTE
-============================ */
-.subscribe-note {
-    font-size: 0.85em;
-    color: #AAAAAA;
-    margin-top: 5px;
-    text-align: center;
-    font-style: italic;
-}
-
-/* ============================
    FOOTER
 ============================ */
 footer {
@@ -206,16 +179,7 @@ footer {
         background-color: #263238; /* force same as Windows */
     }
 
-    /* All screenshots full-width on phone */
-    #screenshots .mode img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* Bottom image: left-aligned, correct size on phone */
+    /* All screenshots full-width on phone, but only the bottom image */
     .bottom-shot {
         position: static !important;
         width: auto !important;
