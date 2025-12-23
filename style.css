@@ -102,9 +102,9 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS – first three only
+   SCREENSHOTS – only the third image
 ============================ */
-#screenshots .mode:nth-child(-n+3) img {
+#screenshots .mode:nth-child(3) img {
     display: block;
     margin: 0 auto;
     height: auto;       /* maintain ratio */
@@ -112,7 +112,7 @@ section {
     max-width: 450px;   /* restore original desktop size */
 }
 
-/* Other screenshots (like Menu images) remain auto-sized, bottom image untouched */
+/* Other screenshots (Menu images) remain auto-sized */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
