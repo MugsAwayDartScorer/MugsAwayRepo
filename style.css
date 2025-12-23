@@ -102,17 +102,17 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS – only the third image
+   SCREENSHOTS – Handicap Mode only
 ============================ */
-#screenshots .mode:nth-child(3) img {
+#screenshots .mode img[src*="Handicap Mode.jpg"] {
     display: block;
     margin: 0 auto;
-    height: auto;       /* maintain ratio */
+    height: auto;       /* maintain aspect ratio */
     width: auto;
     max-width: 450px;   /* restore original desktop size */
 }
 
-/* Other screenshots (Menu images) remain auto-sized */
+/* Other screenshots remain untouched */
 #screenshots .mode img {
     display: block;
     margin: 0 auto;
