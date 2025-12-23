@@ -108,14 +108,14 @@ section {
 #screenshots {
     display: flex;
     flex-direction: column;
-    align-items: center;   /* 🔑 everything moves with first screenshot */
+    align-items: center;     /* centre the whole group */
     margin: 0 auto;
 }
 
-/* Desktop screenshots use natural size */
+/* Desktop screenshots use natural width */
 #screenshots .mode img {
-    width: auto;           /* 🔑 allow centering to work */
-    max-width: 905px;      /* your tuned desktop size */
+    width: auto;
+    max-width: 905px;
     height: auto;
     display: block;
     margin: 0;
@@ -129,6 +129,7 @@ section {
     width: 905px;
     height: 137px;
     margin: 0;
+    align-self: flex-start;  /* 🔑 aligns with screenshots above */
 }
 
 /* ============================
@@ -202,6 +203,7 @@ footer {
     .bottom-shot {
         width: 100vw;
         height: auto;
+        align-self: stretch;
         display: block;
     }
 }
