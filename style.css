@@ -3,7 +3,6 @@
 ============================ */
 :root {
     color-scheme: dark;
-    --bottom-offset: 100px; /* Adjust this to align bottom image on desktop */
 }
 
 html, body {
@@ -104,34 +103,29 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS CONTAINER
+   SCREENSHOTS WRAPPER
 ============================ */
-#screenshots {
+#screenshots-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* left-align images within container */
-    margin: 0 auto;            /* center container on page */
-    width: 905px;              /* desktop width matching screenshots */
+    align-items: center;  /* centers all images together */
+    width: 905px;          /* desktop width */
+    margin: 0 auto;
 }
 
 /* Individual screenshot images */
-#screenshots .mode img {
+#screenshots-wrapper .mode img {
     display: block;
-    width: 100%;   /* fills container width */
+    width: 100%;
     height: auto;
     margin: 0;
 }
 
-/* ============================
-   BOTTOM IMAGE (Desktop adjustable)
-============================ */
-.bottom-shot {
+/* Bottom image */
+#screenshots-wrapper .bottom-shot {
+    width: 905px;
+    height: 137px;
     display: block;
-    width: 905px;                /* fixed desktop width */
-    height: 137px;               /* fixed height */
-    position: relative;
-    left: var(--bottom-offset);  /* adjustable offset */
-    top: 0;
     margin: 0;
 }
 
@@ -193,14 +187,15 @@ footer {
         background-color: #263238;
     }
 
-    /* Screenshots container full width on mobile */
-    #screenshots {
-        width: 100vw;             /* full phone width */
-        align-items: flex-start;  /* left-aligned on mobile */
+    /* Wrapper full width on mobile, left-aligned */
+    #screenshots-wrapper {
+        width: 100vw;
+        align-items: flex-start;
     }
 
     /* Screenshots scale full width */
-    #screenshots .mode img {
+    #screenshots-wrapper .mode img,
+    #screenshots-wrapper .bottom-shot {
         width: 100%;
         max-width: none;
         height: auto;
@@ -208,18 +203,4 @@ footer {
         display: block;
         object-fit: contain;
     }
-
-    /* Bottom image: full width, left-aligned on mobile */
-    .bottom-shot {
-        position: static !important;
-        width: auto !important;
-        min-width: 100vw !important;
-        max-width: none !important;
-        height: auto !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        display: block;
-        object-fit: contain;
-    }
 }
-
