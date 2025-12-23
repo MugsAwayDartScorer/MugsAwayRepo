@@ -1,6 +1,10 @@
 /* ============================
    GLOBAL STYLES
 ============================ */
+:root {
+    color-scheme: dark;
+}
+
 html, body {
     background-color: #263238;
     min-height: 100%;
@@ -8,7 +12,6 @@ html, body {
     color: #CCCCCC;
     font-family: Arial, sans-serif;
     text-align: center;
-    overflow-x: hidden;
 }
 
 /* ============================
@@ -99,29 +102,26 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP ORIGINAL)
+   SCREENSHOTS
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
     text-align: center;
 }
 
-/* Desktop screenshots original sizes */
 #screenshots .mode img {
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
     height: auto;
-    width: auto;
-    max-width: 574px;
 }
 
-/* Bottom image (desktop) */
+/* ============================
+   BOTTOM IMAGE ONLY
+============================ */
 .bottom-shot {
-    display: block;
-    width: 905px;
-    height: 137px;
+    width: 905px;       /* desktop width */
+    height: 137px;      /* desktop height */
     position: relative;
-    left: 168px;
+    left: 168px;        /* 🔧 adjust this value to line up perfectly */
     top: 0;
     margin: 0;
 }
@@ -166,12 +166,6 @@ textarea {
     resize: none;
 }
 
-.legal {
-    font-size: 0.8em;
-    color: #AAAAAA;
-    margin-top: 5px;
-}
-
 /* ============================
    FOOTER
 ============================ */
@@ -182,31 +176,31 @@ footer {
 }
 
 /* ============================
-   MOBILE FIXES
+   MOBILE FIX – bottom image only
 ============================ */
 @media (max-width: 600px) {
 
     html, body {
-        background-color: #263238;
+        background-color: #263238; /* force same as Windows */
     }
 
-    /* Screenshots full-width on mobile */
+    /* All screenshots full-width on phone */
     #screenshots .mode img {
         width: 100%;
-        max-width: none;
+        max-width: 100%;
         height: auto;
         display: block;
-        margin: 0;
+        margin: 0 auto;
     }
 
-    /* Bottom image left-aligned, full width on mobile */
+    /* Bottom image: left-aligned, correct size on phone */
     .bottom-shot {
-        position: static !important;
-        width: auto !important;
-        min-width: 100vw !important;
+        position: static !important;      
+        width: auto !important;           
+        min-width: 100vw !important;      
         max-width: none !important;
-        height: auto !important;
-        margin-left: 0 !important;
+        height: auto !important;          
+        margin-left: 0 !important;        
         margin-right: 0 !important;
         display: block;
     }
