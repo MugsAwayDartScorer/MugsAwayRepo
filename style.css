@@ -179,8 +179,10 @@ footer {
 ============================ */
 @media (max-width: 600px) {
 
+    /* Force same background as Windows */
     html, body {
-        background-color: #263238; /* force same as Windows */
+        background-color: #263238;
+        overflow-x: hidden; /* 🔒 lock horizontal scroll */
     }
 
     /* All screenshots full-width on phone */
@@ -204,4 +206,3 @@ footer {
         display: block;
     }
 }
-
