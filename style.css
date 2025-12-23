@@ -12,7 +12,7 @@ html, body {
     color: #CCCCCC;
     font-family: Arial, sans-serif;
     text-align: center;
-    overflow-x: hidden; /* prevent horizontal scrolling globally */
+    overflow-x: hidden; /* prevent horizontal scrolling */
 }
 
 /* ============================
@@ -103,28 +103,31 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS
+   SCREENSHOTS CONTAINER
 ============================ */
-#screenshots .mode {
-    margin: 20px auto;
-    text-align: center;
+#screenshots {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* left-align images within container */
+    margin: 0 auto;            /* center container on page */
+    width: 905px;              /* desktop width matching screenshots */
 }
 
+/* Individual screenshot images */
 #screenshots .mode img {
     display: block;
+    width: 100%;   /* fills container width */
     height: auto;
-    max-width: 100%; /* allow scaling on smaller screens */
+    margin: 0;
 }
 
-/* ============================
-   BOTTOM IMAGE (Desktop perfect)
-============================ */
+/* Bottom image: same as before for desktop */
 .bottom-shot {
     display: block;
-    width: 905px;        /* match desktop screenshot width */
-    height: 137px;       /* fixed height for Windows */
+    width: 905px;    /* fixed desktop width */
+    height: 137px;   /* fixed height */
     position: relative;
-    left: 168px;         /* aligns with screenshots above */
+    left: 0;         /* align with container */
     top: 0;
     margin: 0;
 }
@@ -184,27 +187,33 @@ footer {
 @media (max-width: 600px) {
 
     html, body {
-        background-color: #263238; /* same as Windows */
+        background-color: #263238;
     }
 
-    /* Screenshots full-width on phone */
+    /* Screenshots container full width on mobile */
+    #screenshots {
+        width: 100vw;             /* full phone width */
+        align-items: flex-start;  /* left-aligned on mobile */
+    }
+
+    /* Screenshots scale full width */
     #screenshots .mode img {
         width: 100%;
-        max-width: 100%;
+        max-width: none;
         height: auto;
+        margin: 0;
         display: block;
-        margin: 0 auto;
         object-fit: contain;
     }
 
-    /* Bottom image: left-aligned, full width on mobile */
+    /* Bottom image: full width, left-aligned on mobile */
     .bottom-shot {
-        position: static !important;   
-        width: auto !important;        
-        min-width: 100vw !important;   
-        max-width: none !important;    
-        height: auto !important;       
-        margin-left: 0 !important;     
+        position: static !important;
+        width: auto !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: 0 !important;
         margin-right: 0 !important;
         display: block;
         object-fit: contain;
