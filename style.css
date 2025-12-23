@@ -123,11 +123,14 @@ section {
 
 /* Bottom image */
 #screenshots-wrapper .bottom-shot {
+   
     width: 905px;
     height: 137px;
     display: block;
     margin: 0;
 }
+#screenshots-wrapper .bottom-shot {
+    left: 12px;  /* adjust until it aligns perfectly */
 
 /* ============================
    REVIEWS
@@ -204,3 +207,4 @@ footer {
         object-fit: contain;
     }
 }
+
