@@ -3,7 +3,7 @@
 ============================ */
 :root {
     color-scheme: dark;
-    --bottom-offset-x: 0px; /* 👈 ADJUST THIS (desktop only) */
+    --bottom-offset-x: 30px; /* 👈 ADJUST THIS (desktop only) */
 }
 
 html, body {
@@ -203,3 +203,4 @@ footer {
         transform: none; /* 🔒 disable offset on mobile */
     }
 }
+
