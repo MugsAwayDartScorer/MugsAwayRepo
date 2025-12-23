@@ -18,8 +18,15 @@ if (subscribeForm) {
             email,
             timestamp: Timestamp.now()
         });
+        if (confirm("Do you really want to unsubscribe?")) {
+    unsubscribe(email);
+} else {
+    document.getElementById("status").innerText = "Unsubscribe cancelled.";
+}
+
 
         subscribeForm.reset();
         alert("Subscribed!");
     });
 }
+
