@@ -1,6 +1,10 @@
 /* ============================
    GLOBAL STYLES
 ============================ */
+:root {
+    color-scheme: dark;
+}
+
 html, body {
     background-color: #263238;
     min-height: 100%;
@@ -200,3 +204,4 @@ footer {
         display: block;
     }
 }
+
