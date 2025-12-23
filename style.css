@@ -102,31 +102,34 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS & IMAGES
+   SCREENSHOTS
 ============================ */
 #screenshots .mode {
     margin: 20px auto;
     text-align: center;
 }
 
-#screenshots .mode img,
-.bottom-shot {
-    width: 100%;        /* scale to container width */
-    max-width: 100%;    /* prevent exceeding container */
+#screenshots .mode img {
+    width: 100%;        /* responsive for mobile */
+    max-width: 100%;
     height: auto;       /* preserve aspect ratio */
     display: block;
     margin: 0 auto;
-    object-fit: contain; /* prevent stretching */
+    object-fit: contain;
 }
 
-/* Bottom image aligned with screenshots above (Windows) */
+/* ============================
+   BOTTOM IMAGE (Desktop)
+============================ */
 .bottom-shot {
-    width: 905px;        /* desktop full size */
-    height: 137px;
+    display: block;
+    width: 905px;       /* fixed desktop width */
+    height: 137px;      /* fixed desktop height */
     position: relative;
-    left: 168px;         /* aligns with image above */
+    left: 168px;        /* aligns with images above */
     top: 0;
     margin: 0;
+    object-fit: none;   /* keep original aspect ratio */
 }
 
 /* ============================
@@ -183,12 +186,13 @@ footer {
 ============================ */
 @media (max-width: 600px) {
 
+    /* Lock horizontal scroll and set background */
     html, body {
-        background-color: #263238; /* same as Windows */
-        overflow-x: hidden;        /* lock horizontal scrolling */
+        background-color: #263238;
+        overflow-x: hidden;
     }
 
-    /* All screenshots full-width on phone, keep aspect ratio */
+    /* Screenshots full-width and keep aspect ratio */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -198,14 +202,14 @@ footer {
         object-fit: contain;
     }
 
-    /* Bottom image: left-aligned, correct size on phone */
+    /* Bottom image responsive, left-aligned, proper aspect ratio */
     .bottom-shot {
-        position: static !important;
-        width: auto !important;
-        min-width: 100vw !important;
-        max-width: none !important;
-        height: auto !important;
-        margin-left: 0 !important;
+        position: static !important;   
+        width: auto !important;        
+        min-width: 100vw !important;   
+        max-width: none !important;    
+        height: auto !important;       
+        margin-left: 0 !important;     
         margin-right: 0 !important;
         display: block;
         object-fit: contain;
