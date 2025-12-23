@@ -154,6 +154,17 @@ section {
     border-radius: 5px;
     background-color: #39464E;
 }
+/* ============================
+   REVIEW DISCLAIMER
+============================ */
+.review-disclaimer {
+    font-size: 0.9em;          /* slightly smaller text */
+    color: #AAAAAA;            /* lighter gray */
+    margin: 5px 0 15px 0;      /* spacing: top 5px, bottom 15px */
+    text-align: center;        /* center under the heading */
+    font-style: italic;        /* optional, makes it look subtle */
+}
+
 
 /* ============================
    FORMS
@@ -213,3 +224,4 @@ footer {
         display: block;
     }
 }
+
