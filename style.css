@@ -108,7 +108,7 @@ section {
 #screenshots {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* left-align images within container */
+    align-items: centre;   /* left-align images within container */
     margin: 0 auto;            /* center container on page */
     width: 905px;              /* desktop width matching screenshots */
 }
@@ -219,3 +219,4 @@ footer {
         object-fit: contain;
     }
 }
+
