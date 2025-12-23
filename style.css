@@ -104,15 +104,16 @@ section {
 /* ============================
    SCREENSHOTS
 ============================ */
-#screenshots .mode {
-    margin: 20px auto;
-    text-align: center;
+#screenshots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* center screenshots */
 }
 
 #screenshots .mode img {
-    width: 100%;        /* responsive */
-    max-width: 574px;   /* match screenshot width */
-    height: auto;       /* preserve aspect ratio */
+    width: 100%;         /* full container width */
+    max-width: 574px;    /* adjust to your screenshot max width */
+    height: auto;        /* preserve aspect ratio */
     display: block;
     margin: 0 auto;
     object-fit: contain;
@@ -123,11 +124,12 @@ section {
 ============================ */
 .bottom-shot {
     display: block;
-    width: 574px;       /* match width of screenshot above */
-    height: auto;       /* preserve aspect ratio */
+    width: 100%;         /* match container width */
+    max-width: 574px;    /* same as screenshots */
+    height: auto;        /* preserve aspect ratio */
+    margin: 0 auto;      /* center in container */
     position: relative;
-    left: 0;            /* align with left edge of screenshots */
-    margin: 0 auto;     /* center horizontally in container */
+    left: 0;
 }
 
 /* ============================
@@ -189,7 +191,7 @@ footer {
         overflow-x: hidden;        /* lock horizontal scrolling */
     }
 
-    /* Screenshots full-width on phone, maintain aspect ratio */
+    /* Screenshots full-width on phone */
     #screenshots .mode img {
         width: 100%;
         max-width: 100%;
@@ -209,5 +211,6 @@ footer {
         margin-left: 0 !important;     
         margin-right: 0 !important;
         display: block;
+        object-fit: contain;
     }
 }
