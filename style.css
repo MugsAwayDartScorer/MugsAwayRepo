@@ -3,7 +3,7 @@
 ============================ */
 :root {
     color-scheme: dark;
-    --bottom-offset: 168px; /* Adjust this to align bottom image on desktop */
+    --bottom-offset: 100px; /* Adjust this to align bottom image on desktop */
 }
 
 html, body {
@@ -222,3 +222,4 @@ footer {
         object-fit: contain;
     }
 }
+
