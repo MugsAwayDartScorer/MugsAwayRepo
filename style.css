@@ -110,8 +110,8 @@ section {
 }
 
 #screenshots .mode img {
-    width: 100%;        /* responsive for mobile */
-    max-width: 100%;
+    width: 100%;        /* responsive */
+    max-width: 574px;   /* match screenshot width */
     height: auto;       /* preserve aspect ratio */
     display: block;
     margin: 0 auto;
@@ -123,12 +123,11 @@ section {
 ============================ */
 .bottom-shot {
     display: block;
-    width: 905px;       /* fixed desktop width */
-    height: 137px;      /* fixed desktop height */
+    width: 574px;       /* match width of screenshot above */
+    height: auto;       /* preserve aspect ratio */
     position: relative;
-    left: 168px;        /* aligns perfectly with images above */
-    top: 0;
-    margin: 0;
+    left: 0;            /* align with left edge of screenshots */
+    margin: 0 auto;     /* center horizontally in container */
 }
 
 /* ============================
@@ -200,7 +199,7 @@ footer {
         object-fit: contain;
     }
 
-    /* Bottom image: left-aligned, full width, proper aspect ratio */
+    /* Bottom image: left-aligned, full width on mobile */
     .bottom-shot {
         position: static !important;   
         width: auto !important;        
@@ -210,6 +209,5 @@ footer {
         margin-left: 0 !important;     
         margin-right: 0 !important;
         display: block;
-        object-fit: contain;
     }
 }
