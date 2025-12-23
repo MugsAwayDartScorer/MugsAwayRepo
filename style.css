@@ -103,7 +103,7 @@ section {
 }
 
 /* ============================
-   SCREENSHOTS (DESKTOP)
+   SCREENSHOTS (DESKTOP BASELINE)
 ============================ */
 #screenshots {
     display: flex;
@@ -113,7 +113,7 @@ section {
 }
 
 #screenshots .mode img {
-    width: auto;
+    width: auto;           /* allow centring to work */
     max-width: 905px;
     height: auto;
     display: block;
@@ -122,7 +122,7 @@ section {
 
 /* 🔑 ALIGN BOTTOM IMAGE WITH SCREENSHOTS */
 #screenshots .mode:last-child {
-    align-self: flex-start;
+    align-self: center;    /* ✅ move RIGHT to match screenshots */
 }
 
 /* ============================
