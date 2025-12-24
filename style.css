@@ -182,23 +182,34 @@ footer {
 }
 
 /* ============================
-   MOBILE FIXES
+   MOBILE FIXES (PHONE ONLY)
+   DOES NOT AFFECT WINDOWS
 ============================ */
 @media (max-width: 600px) {
 
+    /* Prevent left/right scrolling */
     html, body {
-        background-color: #263238; /* force same as Windows */
+        background-color: #263238;
+        overflow-x: hidden;
     }
 
-    /* Bottom image: left-aligned, correct size on phone */
+    /* All screenshots scale correctly on mobile */
+    #screenshots .mode img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Bottom image – keep correct size, aligned left */
     .bottom-shot {
-        position: static !important;
-        width: auto !important;
-        min-width: 100vw !important;
-        max-width: none !important;
+        position: static !important;   /* remove desktop offset */
+        width: 100% !important;        /* full phone width */
+        max-width: 100% !important;
         height: auto !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
         display: block;
     }
 }
+
