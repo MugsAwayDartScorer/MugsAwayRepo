@@ -202,14 +202,15 @@ footer {
         margin: 0 auto;
     }
 
-    /* Bottom image – keep correct size, aligned left */
+   @media (max-width: 600px) {
+
     .bottom-shot {
-        position: static !important;   /* remove desktop offset */
-        width: 100% !important;        /* full phone width */
+        position: static !important;
+        width: 100% !important;      /* 🔑 this is the fix */
         max-width: 100% !important;
-        height: auto !important;
+        height: auto !important;     /* preserve aspect ratio */
         margin: 0 !important;
         display: block;
     }
-}
 
+}
