@@ -202,16 +202,16 @@ footer {
         margin: 0 auto;
     }
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
 
     .bottom-shot {
         position: static !important;
-
-        width: 100% !important;     /* 🔥 this is the key fix */
+        width: 100% !important;     /* 🔑 THIS is the fix */
         max-width: 100% !important;
         height: auto !important;
 
-        margin: 0 !important;
+        margin: 0 !important;       /* left aligned */
         display: block;
     }
+
 }
