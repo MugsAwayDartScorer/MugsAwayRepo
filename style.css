@@ -173,6 +173,17 @@ textarea {
 }
 
 /* ============================
+   GOOGLE PLAY BADGE
+============================ */
+
+.google-play-badge {
+    width: 250px;
+    height: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ============================
    FOOTER
 ============================ */
 footer {
