@@ -223,9 +223,11 @@ footer {
 
 @media (max-width: 600px) {
 
-    .bottom-shot {
+   .bottom-shot {
     display: block;
     width: 905px;
     height: auto;
+    position: relative;
+    left: -4px;
     margin: 0 auto;
 }
