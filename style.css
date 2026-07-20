@@ -72,18 +72,19 @@ html, body {
 
 #downloadBtn,
 #donateBtn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #00E5FF;
+    color: #090915;
     padding: 15px 30px;
     font-size: 18px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 #downloadBtn:hover,
 #donateBtn:hover {
-    background-color: #45a049;
+    background-color: #66F2FF;
 }
 
 .instructions {
