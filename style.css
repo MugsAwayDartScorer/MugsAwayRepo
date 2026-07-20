@@ -131,10 +131,10 @@ section {
 /* Bottom image kept at its cropped size and aligned left */
 #screenshots .mode img.bottom-shot {
     display: block;
-    width: 600px;
+    width: 800px;
     height: auto;
     position: relative;
-    left: -0px;
+    left: 50px;
     margin: 0 auto;
 }
 
