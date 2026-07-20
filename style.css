@@ -38,6 +38,9 @@ html, body {
     margin: 0;
     color: #CCCCCC;
 }
+.cyan-title {
+    color: #00E5FF;
+}
 
 .title-img {
     width: 75px;
