@@ -189,7 +189,8 @@ textarea {
    FOOTER
 ============================ */
 footer {
-    background-color: #1E272C;
+    background-color: #191923;
+    border-top: 1px solid #00E5FF;
     padding: 20px;
     margin-top: 40px;
 }
