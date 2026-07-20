@@ -211,27 +211,19 @@ footer {
 @media (max-width: 600px) {
 
     /* Prevent left/right scrolling */
-    html, body {
+    html,
+    body {
         background-color: #191923;
         overflow-x: hidden;
     }
 
     /* All screenshots scale correctly on mobile */
-    #screenshots .mode img {
+    #screenshots .mode img,
+    .bottom-shot {
         width: 100%;
         max-width: 100%;
         height: auto;
         display: block;
         margin: 0 auto;
     }
-
-@media (max-width: 600px) {
-
-   .bottom-shot {
-    display: block;
-    width: 905px;
-    height: auto;
-    position: relative;
-    left: -50px;
-    margin: 0 auto;
 }
