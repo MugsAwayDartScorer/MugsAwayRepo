@@ -109,6 +109,11 @@ section {
 #screenshots .mode img {
     display: inline-block;
     height: auto;
+    border: 1px solid #00E5FF;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: #191923;
+    box-sizing: border-box;
 }
 
 /* Bottom image aligned with screenshots above (Windows) */
