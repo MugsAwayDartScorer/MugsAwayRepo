@@ -125,8 +125,9 @@ section {
 
 /* Bottom image aligned with screenshots above (Windows) */
 .bottom-shot {
+.bottom-shot {
     display: block;
-    width: 905px;
+    width: 583.433px;
     height: auto;
     margin: 0 auto;
 }
