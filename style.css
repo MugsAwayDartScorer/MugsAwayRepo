@@ -113,6 +113,11 @@ section {
     margin: 0 auto;
 }
 
+#screenshots .mode {
+    margin: 20px auto;
+    text-align: center;
+}
+
 #screenshots .mode img {
     display: inline-block;
     height: auto;
@@ -123,12 +128,13 @@ section {
     box-sizing: border-box;
 }
 
-/* Bottom image aligned with screenshots above (Windows) */
-.bottom-shot {
-.bottom-shot {
+/* Bottom image kept at its cropped size and aligned left */
+#screenshots .mode img.bottom-shot {
     display: block;
-    width: 583.433px;
+    width: 471px;
     height: auto;
+    position: relative;
+    left: -51px;
     margin: 0 auto;
 }
 
