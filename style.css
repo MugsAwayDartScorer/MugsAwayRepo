@@ -120,11 +120,8 @@ section {
 .bottom-shot {
     display: block;
     width: 905px;
-    height: 137px;
-    position: relative;
-    left: 400px;
-    top: 0;
-    margin: 0;
+    height: auto;
+    margin: 0 auto;
 }
 
 /* ============================
