@@ -106,9 +106,11 @@ section {
     text-align: center;
 }
 
-#screenshots .mode:last-child {
-    position: relative;
-    left: -20px;
+.bottom-shot {
+    display: block;
+    width: 574px;
+    height: auto;
+    margin: 0 auto;
 }
 
 #screenshots .mode img {
