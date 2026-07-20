@@ -224,13 +224,8 @@ footer {
 @media (max-width: 600px) {
 
     .bottom-shot {
-        position: static !important;
-        width: 100% !important;     /* 🔑 THIS is the fix */
-        max-width: 100% !important;
-        height: auto !important;
-
-        margin: 0 !important;       /* left aligned */
-        display: block;
-    }
-
+    display: block;
+    width: 905px;
+    height: auto;
+    margin: 0 auto;
 }
