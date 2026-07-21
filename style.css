@@ -242,7 +242,7 @@ footer {
 
       /* Bottom screenshot - mobile only */
     #screenshots .mode img.bottom-shot {
-        width: 80%;          /* Adjust width here */
+        width: 100%;          /* Adjust width here */
         max-width: none;
         height: auto;
         display: block;
