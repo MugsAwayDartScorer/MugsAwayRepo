@@ -231,13 +231,21 @@ footer {
         overflow-x: hidden;
     }
 
-    /* All screenshots scale correctly on mobile */
-    #screenshots .mode img,
-    .bottom-shot {
+      /* All screenshots scale correctly on mobile */
+    #screenshots .mode img {
         width: 100%;
         max-width: 100%;
         height: auto;
         display: block;
         margin: 0 auto;
+    }
+
+    /* Bottom screenshot - mobile only */
+    .bottom-shot {
+        width: 92%;          /* Adjust width here */
+        max-width: none;
+        height: auto;
+        display: block;
+        margin-left: 4%;     /* Adjust left/right position here */
     }
 }
