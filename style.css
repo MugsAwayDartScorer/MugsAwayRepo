@@ -246,6 +246,6 @@ footer {
         max-width: none;
         height: auto;
         display: block;
-        margin-left: 4%;     /* Adjust left/right position here */
+        margin-left: 20%;     /* Adjust left/right position here */
     }
 }
