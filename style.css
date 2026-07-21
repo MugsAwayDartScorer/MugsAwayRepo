@@ -240,12 +240,14 @@ footer {
         margin: 0 auto;
     }
 
-    /* Bottom screenshot - mobile only */
-    .bottom-shot {
+      /* Bottom screenshot - mobile only */
+    #screenshots .mode img.bottom-shot {
         width: 50%;          /* Adjust width here */
         max-width: none;
         height: auto;
         display: block;
-        margin-left: 40%;     /* Adjust left/right position here */
+        position: relative;
+        left: 0;
+        margin-left: 40%;    /* Higher moves right */
+        margin-right: 0;
     }
-}
