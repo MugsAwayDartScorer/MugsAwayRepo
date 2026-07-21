@@ -242,10 +242,10 @@ footer {
 
     /* Bottom screenshot - mobile only */
     .bottom-shot {
-        width: 92%;          /* Adjust width here */
+        width: 50%;          /* Adjust width here */
         max-width: none;
         height: auto;
         display: block;
-        margin-left: 20%;     /* Adjust left/right position here */
+        margin-left: 40%;     /* Adjust left/right position here */
     }
 }
