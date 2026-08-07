@@ -258,6 +258,15 @@ footer {
         display: block;
         position: relative;
         left: 0;
-        margin-left: 0%;    /* Higher moves right */
+                margin-left: 0%;    /* Higher moves right */
         margin-right: 0;
+    }
+}
+
+/* Tournament Manager screenshots only */
+#tournament-manager-page #screenshots .mode img {
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+}
     }
