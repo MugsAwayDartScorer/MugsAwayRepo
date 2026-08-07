@@ -147,7 +147,11 @@ section {
 ============================ */
 #screenshots .mode:nth-child(2) img,
 #screenshots .mode:nth-child(3) img,
-#screenshots .mode:nth-child(4) img {
+#screenshots .mode:nth-child(4) img,
+#tournament-manager-page #screenshots .mode:nth-child(5) img,
+#tournament-manager-page #screenshots .mode:nth-child(6) img,
+#tournament-manager-page #screenshots .mode:nth-child(7) img,
+#tournament-manager-page #screenshots .mode:nth-child(8) img {
     width: 450px;
     height: auto;
 }
