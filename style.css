@@ -152,7 +152,16 @@ section {
     width: 450px;  /* smaller size */
     height: auto;  /* maintain aspect ratio */
 }
-
+/* ============================
+   TOURNAMENT MANAGER SCREENSHOT SIZES
+   DOES NOT AFFECT HOME PAGE
+============================ */
+#tournament-manager-page #screenshots .mode:nth-child(5) img,
+#tournament-manager-page #screenshots .mode:nth-child(6) img,
+#tournament-manager-page #screenshots .mode:nth-child(7) img {
+    width: 450px;
+    height: auto;
+}
 /* ============================
    REVIEWS
 ============================ */
