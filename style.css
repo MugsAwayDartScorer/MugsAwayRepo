@@ -148,6 +148,7 @@ section {
 #screenshots .mode:nth-child(2) img, /* Default Screen.jpg */
 #screenshots .mode:nth-child(3) img, /* Stats Page.jpg */
 #screenshots .mode:nth-child(4) img  /* Handicap Mode.jpg */
+#tournament-manager-page #screenshots .mode:nth-child(8) img {
 {
     width: 450px;  /* smaller size */
     height: auto;  /* maintain aspect ratio */
