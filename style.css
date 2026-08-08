@@ -54,7 +54,12 @@ html, body {
     flex-shrink: 0;
     max-width: none;
 }
-
+/* ============================
+   TOURNAMENT MANAGER BACKGROUND
+============================ */
+#tournament-manager-page {
+    background-color: #000000;
+}
 /* ============================
    INTRO
 ============================ */
